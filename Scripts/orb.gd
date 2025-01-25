@@ -35,9 +35,8 @@ func _physics_process(delta: float) -> void:
 			connectedOrbs.append(collision.get_collider())
 			collision.get_collider().connectedOrbs.append(self)
 			velocity = Vector2.ZERO
-			_testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [1,1,1])
+			_testFormulas()
 			active = false
-		
 		elif (collision.get_collider() is Seal):
 			collision.get_collider().connectedOrbs.append(self)
 			collision.get_collider()._testSeal()
@@ -51,9 +50,26 @@ func _physics_process(delta: float) -> void:
 			active = false
 		
 func _testFormulas() -> void:
-	var orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [1,1,1])
+	print("Test Life Formula")
+	var orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [0,0,0])
 	if orbs.size() > 0:
 		_completeFormula(orbs)
+		print("Give Life")
+		return
+	
+	print("Test Take Life Formula")
+	orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [1,1,1])
+	if orbs.size() > 0:
+		_completeFormula(orbs)
+		print("Take Life")
+		return
+		
+	print("Test Gold Formula")
+	orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [2,2,2])
+	if orbs.size() > 0:
+		_completeFormula(orbs)
+		print("Give Gold")
+		return
 	
 	
 func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
