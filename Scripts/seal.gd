@@ -5,18 +5,23 @@ var requiredRunes: Array[int] = [0,0,0]
 
 @export var rune_tex_array : Array
 
-var tex_num : Array[int] = [0,0,0]
+var tex_num : Array[int] = [10,10,10]
 
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print("Seal")
 	for i in range(len(requiredRunes)):
 		requiredRunes[i] = randi() % 3;
-		tex_num[i] = requiredRunes[i]*3  + randi()%3
+		var temp = requiredRunes[i]*3  + randi()%3
+		while(temp in tex_num ):
+			temp = requiredRunes[i]*3  + randi()%3
+		tex_num[i] = temp
+			
 		get_child(i).set_texture(rune_tex_array[tex_num[i]])
+		
+	
 		
 	
 		
