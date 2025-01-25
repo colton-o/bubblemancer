@@ -3,7 +3,7 @@ class_name Orb
 @export var speed = 0
 var active = true
 var collision
-var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
+@export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 var runeID;
 
 # Called when the node enters the scene tree for the first time.
@@ -21,13 +21,14 @@ func _physics_process(delta: float) -> void:
 		collision = null
 	if(collision):
 		var colName = collision.get_collider().name
-		print(colName)
+		
+			
 		if colName == "walls":
 			velocity = velocity.bounce(collision.get_normal())
 			print("wall")
-		elif colName == "orb":
-			connectedOrbs.append(collision)
-			collision.connectedOrbs.append(self)
+		elif (collision.get_collider() is Orb):
+			connectedOrbs.append(collision.get_collider())
+			collision.get_collider().connectedOrbs.append(self)
 			velocity = Vector2.ZERO
 			process_mode = 4
 			active = false
