@@ -1,6 +1,6 @@
 extends StaticBody2D
 class_name Seal
-var requiredRuins: Array[int] = []
+var requiredRuins: Array[int] = [0,0,0]
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
 
@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	pass
 
 func _testSeal() -> void:
+	print("Testing Seal")
 	var orbsToTest = connectedOrbs
 	var foundOrb
 	var foundOrbLocation
@@ -31,6 +32,6 @@ func _testSeal() -> void:
 	pass
 
 func _breakSeal() -> void:
-	
+	print("Seal Broken")
 	
 	pass
