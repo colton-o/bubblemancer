@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var rune_tex: Array = []
+@export var rune_tex: Array
 
 var size = 3
 var tex_size = 3

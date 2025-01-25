@@ -75,15 +75,18 @@ rune_tex = [ExtResource("7_g5ltj"), ExtResource("8_ighqw"), ExtResource("9_s28a7
 position = Vector2(7.25757, 236.214)
 scale = Vector2(3.77053, 1.72811)
 texture = ExtResource("8_4nifx")
+hframes = 5
 
 [node name="Rune_02" type="Sprite2D" parent="Inventory"]
 position = Vector2(3.62878, -9.98087)
 scale = Vector2(3.77053, 1.71529)
 texture = ExtResource("8_4nifx")
+hframes = 5
 
 [node name="Rune_01" type="Sprite2D" parent="Inventory"]
 position = Vector2(5.44315, -209.598)
 scale = Vector2(3.77053, 1.72811)
 texture = ExtResource("8_4nifx")
+hframes = 5
 
 [node name="Seal" parent="." instance=ExtResource("10_nturx")]
