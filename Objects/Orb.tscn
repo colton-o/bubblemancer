@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4feeix6dhioc"]
+[gd_scene load_steps=17 format=3 uid="uid://c4feeix6dhioc"]
 
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="2_fcsqy"]
 [ext_resource type="Script" path="res://Scripts/orb.gd" id="2_ibo17"]
@@ -50,6 +50,49 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_4xb85"]
 radius = 23.3452
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_787ew"]
+atlas = ExtResource("2_fcsqy")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8gcd"]
+atlas = ExtResource("2_fcsqy")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i5b4"]
+atlas = ExtResource("2_fcsqy")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8h5tj"]
+atlas = ExtResource("2_fcsqy")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd5vj"]
+atlas = ExtResource("2_fcsqy")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7cujk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_787ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8gcd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i5b4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8h5tj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd5vj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
 [node name="Orb" type="CharacterBody2D"]
 disable_mode = 1
 collision_layer = 3
@@ -58,10 +101,10 @@ script = ExtResource("2_ibo17")
 speed = 750
 
 [node name="Bubble_Sprite" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(1.71, 1.5)
 sprite_frames = SubResource("SpriteFrames_4wnah")
 autoplay = "default"
-frame_progress = 0.329662
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4xb85")
@@ -70,3 +113,9 @@ shape = SubResource("CircleShape2D_4xb85")
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("3_247cq")
 hframes = 5
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_7cujk")
+autoplay = "default"
+frame_progress = 0.264417
