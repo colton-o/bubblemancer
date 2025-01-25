@@ -57,6 +57,7 @@ script = ExtResource("2_ibo17")
 speed = 750
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.4, 1.4)
 shape = SubResource("CircleShape2D_4xb85")
 
 [node name="RuneSprite" type="Sprite2D" parent="."]
