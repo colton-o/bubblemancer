@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://gd8n11akhqei"]
+[gd_scene load_steps=15 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
 [ext_resource type="Texture2D" uid="uid://dbadu0ki6ebp8" path="res://Sprites/Pipe/bubble_pipe_idle.tga" id="2_kqyoi"]
@@ -11,9 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://by1m5i0ar1f8c" path="res://Sprites/Bubble/bubble_stroke_rune.tga" id="8_ighqw"]
 [ext_resource type="Texture2D" uid="uid://dcadn0auhi4fv" path="res://Sprites/Bubble/bubble_tri_rune.tga" id="9_s28a7"]
 [ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/seal.tscn" id="10_nturx"]
+[ext_resource type="FontFile" uid="uid://cvfn2glm3782q" path="res://ArcaneNine-eZP1x.ttf" id="12_dxd6t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_likt5"]
+font = ExtResource("12_dxd6t")
+font_size = 121
+font_color = Color(0.747831, 0.0693417, 0.140642, 1)
+outline_color = Color(0.627451, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(1, 1, 1, 0.2)
+shadow_offset = Vector2(0, 0)
 
 [node name="Root" type="Node2D"]
 
@@ -90,3 +100,18 @@ texture = ExtResource("8_4nifx")
 hframes = 5
 
 [node name="Seal" parent="." instance=ExtResource("10_nturx")]
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Turn" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = -916.0
+offset_top = -517.0
+offset_right = -499.0
+offset_bottom = -243.0
+text = "Turns"
+label_settings = SubResource("LabelSettings_likt5")

@@ -1,10 +1,11 @@
 extends Node2D
 
-var rot = 5;
+var rot = 5
+var turns = 4
 @export var ORB : PackedScene
 
 func _ready() -> void:
-	pass # Replace with function body.
+	$"../UI/Turn".text = "Turns: %s" % turns
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -30,6 +31,8 @@ func shoot():
 	orb.runeID = bubble_rune
 	get_node("/root").add_child(orb)
 	$"../Inventory".update_stash()
+	turns -= 1
+	$"../UI/Turn".text = "Turns: %s" % turns
 
 	
 	
