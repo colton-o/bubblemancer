@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bflsladtih55q"]
+[gd_scene load_steps=10 format=3 uid="uid://bflsladtih55q"]
 
 [ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
 [ext_resource type="Texture2D" uid="uid://c5y8i2ij2q5ix" path="res://Sprites/gun.tga" id="2_twinm"]
 [ext_resource type="Texture2D" uid="uid://dgakl80ahvct8" path="res://Sprites/orb.tga" id="3_ln1rf"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
+[ext_resource type="Texture2D" uid="uid://cwucg70wi4n6y" path="res://Sprites/wardrobe-custom-timber-tasmanian-oak-stained1.jpg" id="6_d1ycs"]
+[ext_resource type="Script" path="res://Levels/inventory.gd" id="7_wgrqd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
 radius = 128.867
@@ -62,3 +64,9 @@ texture = ExtResource("2_twinm")
 offset = Vector2(6.185, -123.8)
 script = ExtResource("3_txmbr")
 ORB = ExtResource("4_40082")
+
+[node name="Inventory" type="Sprite2D" parent="."]
+position = Vector2(686, 21)
+scale = Vector2(0.551149, 1.2023)
+texture = ExtResource("6_d1ycs")
+script = ExtResource("7_wgrqd")

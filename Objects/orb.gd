@@ -3,6 +3,7 @@ class_name Orb
 @export var speed = 0
 var active = true
 var collision
+var rune
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 var runeID;
 
@@ -10,8 +11,6 @@ var runeID;
 func _ready() -> void:
 	velocity = Vector2(0, -1*speed).rotated(rotation)
 	
-
-
 	
 			
 func _physics_process(delta: float) -> void:
