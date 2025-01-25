@@ -26,7 +26,7 @@ func shoot():
 	orb.global_position = get_child(0).global_position
 	orb.global_rotation = global_rotation
 	var bubble_rune = $"../Inventory".bubble_array[0].rune
-	orb.get_child(2).set_texture($"../Inventory".rune_tex[bubble_rune])
+	orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
 	orb.runeID = bubble_rune
 	get_node("/root").add_child(orb)
 	$"../Inventory".update_stash()

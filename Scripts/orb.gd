@@ -4,17 +4,18 @@ class_name Orb
 var active = true
 var collision
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
-
 var runeID
-@onready var bubbleSprite = $AnimatedSprite2D
 
 
 
 
+	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	velocity = Vector2(0, -1*speed).rotated(rotation)
-	bubbleSprite.play("default")
+	
+
+
 	
 	
 			
@@ -34,19 +35,19 @@ func _physics_process(delta: float) -> void:
 			connectedOrbs.append(collision.get_collider())
 			collision.get_collider().connectedOrbs.append(self)
 			velocity = Vector2.ZERO
-			process_mode = 4
+			
 			active = false
 		
 		elif (collision.get_collider() is Seal):
 			collision.get_collider().connectedOrbs.append(self)
 			collision.get_collider()._testSeal()
 			velocity = Vector2.ZERO
-			process_mode = 4
+			
 			active = false
 		
 		else:
 			velocity = Vector2.ZERO
-			process_mode = 4
+			
 			active = false
 		
 	
