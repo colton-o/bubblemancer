@@ -67,4 +67,4 @@ hframes = 5
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_0islq")
 autoplay = "default"
-frame_progress = 0.0687826
+frame_progress = 0.119788

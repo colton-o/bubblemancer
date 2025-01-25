@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 	
 	
 func shoot():
+	$Sprite.play("Shoot")
 	print("shooting")
 	var orb = ORB.instantiate()
 	orb.global_position = get_child(0).global_position

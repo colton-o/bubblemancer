@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://gd8n11akhqei"]
+[gd_scene load_steps=23 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
 [ext_resource type="Texture2D" uid="uid://dbadu0ki6ebp8" path="res://Sprites/Pipe/bubble_pipe_idle.tga" id="2_kqyoi"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
+[ext_resource type="Texture2D" uid="uid://bn1gp2pehi0me" path="res://Sprites/Pipe/bubble_pipe_shoot.tga" id="4_rp1po"]
 [ext_resource type="Texture2D" uid="uid://cwucg70wi4n6y" path="res://Sprites/wardrobe-custom-timber-tasmanian-oak-stained1.jpg" id="6_d1ycs"]
 [ext_resource type="Texture2D" uid="uid://dl8tlcd20crwu" path="res://Sprites/Bubble/bubble_circle_rune.tga" id="7_g5ltj"]
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="7_wgrqd"]
@@ -15,6 +16,64 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbgjd"]
+atlas = ExtResource("4_rp1po")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emtxi"]
+atlas = ExtResource("4_rp1po")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvhje"]
+atlas = ExtResource("4_rp1po")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dhdk"]
+atlas = ExtResource("4_rp1po")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rgpq"]
+atlas = ExtResource("4_rp1po")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51lt5"]
+atlas = ExtResource("4_rp1po")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdo7a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbgjd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emtxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvhje")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dhdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rgpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51lt5")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kqyoi")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_likt5"]
 font = ExtResource("12_dxd6t")
@@ -67,11 +126,12 @@ ORB = ExtResource("4_40082")
 [node name="Muzzle" type="Node2D" parent="Gun"]
 position = Vector2(0, -250.13)
 
-[node name="Sprite2D" type="Sprite2D" parent="Gun"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Gun"]
 position = Vector2(0, -163.515)
 rotation = 3.14159
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_kqyoi")
+sprite_frames = SubResource("SpriteFrames_cdo7a")
+animation = &"Shoot"
 
 [node name="Inventory" type="Sprite2D" parent="."]
 self_modulate = Color(0.195545, 0.195545, 0.195545, 1)
