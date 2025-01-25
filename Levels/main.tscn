@@ -5,8 +5,7 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="Border" type="Sprite2D" parent="."]
-position = Vector2(2, 4.50001)
-scale = Vector2(0.121, 0.249609)
+scale = Vector2(0.236458, 0.439062)
 texture = ExtResource("1_bjvi8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
