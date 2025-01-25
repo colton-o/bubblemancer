@@ -13,11 +13,6 @@ var runeID
 func _ready() -> void:
 	velocity = Vector2(0, -1*speed).rotated(rotation)
 	
-
-
-	
-	
-			
 func _physics_process(delta: float) -> void:
 	if active:
 		collision = move_and_collide(velocity*delta)
@@ -53,6 +48,7 @@ func _testFormulas() -> void:
 	var orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [0,0,0])
 	if orbs.size() > 0:
 		_completeFormula(orbs)
+		$"../PowerUps".extra_turn(1)
 		print("Give Life")
 		return
 	

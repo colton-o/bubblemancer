@@ -86,9 +86,6 @@ shadow_offset = Vector2(0, 0)
 
 [node name="Root" type="Node2D"]
 
-[node name="PowerUps" type="Node2D" parent="."]
-script = ExtResource("12_84lc0")
-
 [node name="Border" type="Sprite2D" parent="."]
 scale = Vector2(0.57, 0.57)
 texture = ExtResource("1_g5rbs")
@@ -185,3 +182,6 @@ offset_right = -499.0
 offset_bottom = -243.0
 text = "Turns"
 label_settings = SubResource("LabelSettings_likt5")
+
+[node name="PowerUps" type="Node2D" parent="."]
+script = ExtResource("12_84lc0")
