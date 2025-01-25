@@ -16,8 +16,9 @@ func _process(delta: float) -> void:
 	pass
 
 func _testSeal() -> void:
-	var orbsToTest = connectedOrbs
+	var orbsToTest = connectedOrbs.duplicate(true)
 	var foundOrb
+	var orbNotFound = false
 	var foundOrbLocation
 	var index = 0
 	for runeID in requiredRunes:
@@ -33,13 +34,13 @@ func _testSeal() -> void:
 				break
 		if foundOrb:
 			orbsToTest.remove_at(foundOrbLocation)
-			
 		else:
-			
-			print("Seal Not Broken")
-			return
-		
-	_breakSeal()
+			orbNotFound = true
+		index += 1
+	if orbNotFound:
+		print("Seal Not Broken")
+	else:
+		_breakSeal()
 	pass
 
 func _breakSeal() -> void:
