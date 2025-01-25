@@ -4,7 +4,12 @@ class_name Orb
 var active = true
 var collision
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
+
 var runeID
+
+
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,6 +36,13 @@ func _physics_process(delta: float) -> void:
 			process_mode = 4
 			active = false
 			print("orb")
+		elif (collision.get_collider() is Seal):
+			collision.get_collider().connectedOrbs.append(self)
+			collision.get_collider()._testSeal()
+			velocity = Vector2.ZERO
+			process_mode = 4
+			active = false
+			print("seal")
 		else:
 			velocity = Vector2.ZERO
 			process_mode = 4
