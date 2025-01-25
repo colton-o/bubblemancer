@@ -4,9 +4,8 @@ class_name Orb
 var active = true
 var collision
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
+var connectedSeal
 var runeID
-
-
 
 
 	
@@ -41,7 +40,7 @@ func _physics_process(delta: float) -> void:
 			collision.get_collider().connectedOrbs.append(self)
 			collision.get_collider()._testSeal()
 			velocity = Vector2.ZERO
-			
+			connectedSeal = collision.get_collider()
 			active = false
 		
 		else:
@@ -95,4 +94,8 @@ func _completeFormula(orbsUsed) -> void:
 		orb._pop()
 	
 func _pop() -> void:
+	if connectedSeal:
+		connectedSeal.connectedOrbs.erase(self)
+	for orb in connectedOrbs:
+		orb.connectedOrbs.erase(self)
 	queue_free()
