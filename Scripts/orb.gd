@@ -50,8 +50,13 @@ func _physics_process(delta: float) -> void:
 			
 			active = false
 		
+func _testFormulas() -> void:
+	var orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [1,1,1])
+	if orbs.size() > 0:
+		_completeFormula(orbs)
 	
-func _testFormula(currentOrb, collectedOrbs, formula : Array) -> void:
+	
+func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 	print("testing formula")
 	for runeID in formula:
 		if currentOrb.runeID == runeID:
@@ -61,13 +66,13 @@ func _testFormula(currentOrb, collectedOrbs, formula : Array) -> void:
 			newFormula.erase(currentOrb.runeID)
 			if newFormula.is_empty():
 				_completeFormula(collectedOrbs)
-				return
+				return collectedOrbs
 			else:
 				for orb in currentOrb.connectedOrbs:
 					var num = newCollectedOrbs.count(orb)
 					if(num == 0):
-						_testFormula(orb, newCollectedOrbs, newFormula)
-			
+						return _testFormula(orb, newCollectedOrbs, newFormula)
+	return Array([], TYPE_OBJECT, "Node", Orb)
 	
 func _completeFormula(orbsUsed) -> void:
 	for orb in orbsUsed:
