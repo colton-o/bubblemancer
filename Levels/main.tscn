@@ -1,11 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://bflsladtih55q"]
+[gd_scene load_steps=6 format=3 uid="uid://bflsladtih55q"]
 
 [ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
+[ext_resource type="Texture2D" uid="uid://c5y8i2ij2q5ix" path="res://Sprites/gun.tga" id="2_twinm"]
+[ext_resource type="Texture2D" uid="uid://dgakl80ahvct8" path="res://Sprites/orb.tga" id="3_ln1rf"]
+[ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
+[ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Root" type="Node2D"]
 
 [node name="Border" type="Sprite2D" parent="."]
 scale = Vector2(0.236458, 0.439062)
 texture = ExtResource("1_bjvi8")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(0, 492)
+scale = Vector2(0.964844, 0.550781)
+texture = ExtResource("2_twinm")
+offset = Vector2(6.185, -123.8)
+script = ExtResource("3_txmbr")
+ORB = ExtResource("4_40082")
+
+[node name="Orb" type="Sprite2D" parent="."]
+position = Vector2(0, -65.335)
+texture = ExtResource("3_ln1rf")

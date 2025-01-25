@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4feeix6dhioc"]
+
+[ext_resource type="Texture2D" uid="uid://dgakl80ahvct8" path="res://Sprites/orb.tga" id="1_pfrku"]
+[ext_resource type="Script" path="res://Objects/orb.gd" id="2_ibo17"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4xb85"]
+radius = 23.3452
+
+[node name="Orb" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("2_ibo17")
+speed = 750
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_pfrku")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_4xb85")
