@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bai4q0ixrltg4"]
+[gd_scene load_steps=11 format=3 uid="uid://bai4q0ixrltg4"]
 
 [ext_resource type="Script" path="res://Scripts/seal.gd" id="1_lwe4x"]
 [ext_resource type="Texture2D" uid="uid://b87pobwc2y6f6" path="res://Sprites/Seal/seal_base.tga" id="2_0ux6b"]
+[ext_resource type="Texture2D" uid="uid://c0ntaks7sdbao" path="res://Sprites/Seal/seal_rune_circle01.tga" id="3_fu75b"]
+[ext_resource type="Script" path="res://Scripts/rune.gd" id="4_2udhc"]
+[ext_resource type="Texture2D" uid="uid://cwpkklbc1no54" path="res://Sprites/Seal/seal_rune_line01.tga" id="4_hounj"]
+[ext_resource type="Texture2D" uid="uid://d1vqfaaw62c1s" path="res://Sprites/Seal/seal_rune_tri01.tga" id="5_iiwh0"]
+[ext_resource type="Texture2D" uid="uid://c666auxj5strn" path="res://Sprites/Seal/seal_rune_circle01_ACTIVE.tga" id="5_klks8"]
+[ext_resource type="Texture2D" uid="uid://0gbs47xkmsbo" path="res://Sprites/Seal/seal_rune_line01_ACTIVE.tga" id="7_nv6xj"]
+[ext_resource type="Texture2D" uid="uid://bmwdxy7qqumrr" path="res://Sprites/Seal/seal_rune_tri01_ACTIVE.tga" id="9_127hv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
 radius = 128.867
@@ -11,7 +18,28 @@ position = Vector2(0, -65.335)
 collision_layer = 3
 script = ExtResource("1_lwe4x")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Rune_01" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_fu75b")
+script = ExtResource("4_2udhc")
+active = ExtResource("5_klks8")
+
+[node name="Rune_02" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("4_hounj")
+script = ExtResource("4_2udhc")
+active = ExtResource("7_nv6xj")
+
+[node name="Rune_03" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("5_iiwh0")
+script = ExtResource("4_2udhc")
+active = ExtResource("9_127hv")
+
+[node name="Base" type="Sprite2D" parent="."]
 scale = Vector2(2.733, 2.5)
 texture = ExtResource("2_0ux6b")
 

@@ -1,7 +1,7 @@
 extends StaticBody2D
 
 class_name Seal
-var requiredRunes: Array[int] = [0,1,0]
+var requiredRunes: Array[int] = [0,1,2]
 
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
@@ -19,19 +19,26 @@ func _testSeal() -> void:
 	var orbsToTest = connectedOrbs
 	var foundOrb
 	var foundOrbLocation
-
+	var index = 0
 	for runeID in requiredRunes:
 		foundOrb = false;
 		for orb in orbsToTest:
+			print("id= ",  orb.runeID)
+			print ("checking", runeID)
 			if orb.runeID == runeID:
+				print("index= ", index)
 				foundOrbLocation = orbsToTest.bsearch(orb)
 				foundOrb = true
+				get_child(index).activate()
 				break
 		if foundOrb:
 			orbsToTest.remove_at(foundOrbLocation)
+			
 		else:
+			
 			print("Seal Not Broken")
 			return
+		
 	_breakSeal()
 	pass
 
