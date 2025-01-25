@@ -96,6 +96,7 @@ func _completeFormula(orbsUsed) -> void:
 func _pop() -> void:
 	if connectedSeal:
 		connectedSeal.connectedOrbs.erase(self)
+		connectedSeal._testSeal()
 	for orb in connectedOrbs:
 		orb.connectedOrbs.erase(self)
 	queue_free()

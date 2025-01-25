@@ -47,12 +47,13 @@ func _testSeal() -> void:
 				print("match")
 				foundOrb = orb
 				found = true
-			
 				get_child(i).set_texture(rune_tex_array[tex_num[i]+9])
 				break
-		if foundOrb:
+		if found:
 			orbsToTest.erase(foundOrb)
 		else:
+			print("rune not found")
+			get_child(i).set_texture(rune_tex_array[tex_num[i]])
 			NotFound = true
 	if NotFound:
 		print("Seal Not Broken")
