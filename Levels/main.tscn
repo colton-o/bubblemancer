@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bflsladtih55q"]
+[gd_scene load_steps=12 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
 [ext_resource type="Texture2D" uid="uid://c5y8i2ij2q5ix" path="res://Sprites/gun.tga" id="2_twinm"]
-[ext_resource type="Texture2D" uid="uid://dgakl80ahvct8" path="res://Sprites/orb.tga" id="3_ln1rf"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
 [ext_resource type="Texture2D" uid="uid://cwucg70wi4n6y" path="res://Sprites/wardrobe-custom-timber-tasmanian-oak-stained1.jpg" id="6_d1ycs"]
@@ -10,24 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bl1y4dctu2guy" path="res://Sprites/download (1).jpeg" id="8_lspnj"]
 [ext_resource type="Texture2D" uid="uid://biabu1oxxwnnp" path="res://Sprites/download.jpeg" id="9_2hfh7"]
 [ext_resource type="Texture2D" uid="uid://cpu14ndsbrfyi" path="res://Sprites/download.png" id="10_djqoe"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
-radius = 128.867
+[ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/Seal.tscn" id="10_nturx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
 
 [node name="Root" type="Node2D"]
-
-[node name="Orb_Level" type="StaticBody2D" parent="."]
-position = Vector2(0, -65.335)
-collision_layer = 3
-
-[node name="Sprite2D" type="Sprite2D" parent="Orb_Level"]
-texture = ExtResource("3_ln1rf")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Orb_Level"]
-shape = SubResource("CircleShape2D_183uq")
 
 [node name="Border" type="Sprite2D" parent="."]
 scale = Vector2(0.236458, 0.439062)
@@ -74,3 +61,5 @@ scale = Vector2(0.551149, 1.2023)
 texture = ExtResource("6_d1ycs")
 script = ExtResource("7_wgrqd")
 ruin_tex = [ExtResource("8_lspnj"), ExtResource("9_2hfh7"), ExtResource("10_djqoe")]
+
+[node name="Seal" parent="." instance=ExtResource("10_nturx")]
