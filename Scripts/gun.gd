@@ -34,7 +34,7 @@ func shoot():
 	$"../Inventory".update_stash()
 	turns -= 1
 	$"../UI/Turn".text = "Turns: %s" % turns
-	if(turns == 0):
+	if(turns < 0):
 		get_tree().reload_current_scene()
 
 	

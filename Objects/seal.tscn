@@ -1,14 +1,26 @@
-[gd_scene load_steps=11 format=3 uid="uid://bai4q0ixrltg4"]
+[gd_scene load_steps=23 format=3 uid="uid://bai4q0ixrltg4"]
 
 [ext_resource type="Script" path="res://Scripts/seal.gd" id="1_lwe4x"]
 [ext_resource type="Texture2D" uid="uid://b87pobwc2y6f6" path="res://Sprites/Seal/seal_base.tga" id="2_0ux6b"]
 [ext_resource type="Texture2D" uid="uid://c0ntaks7sdbao" path="res://Sprites/Seal/seal_rune_circle01.tga" id="3_fu75b"]
+[ext_resource type="Texture2D" uid="uid://dvaskt4nicy5o" path="res://Sprites/Seal/seal_rune_circle02.tga" id="3_iapg5"]
 [ext_resource type="Script" path="res://Scripts/rune.gd" id="4_2udhc"]
 [ext_resource type="Texture2D" uid="uid://cwpkklbc1no54" path="res://Sprites/Seal/seal_rune_line01.tga" id="4_hounj"]
+[ext_resource type="Texture2D" uid="uid://c4kcnapej4o3c" path="res://Sprites/Seal/seal_rune_circle03.tga" id="4_y03q4"]
 [ext_resource type="Texture2D" uid="uid://d1vqfaaw62c1s" path="res://Sprites/Seal/seal_rune_tri01.tga" id="5_iiwh0"]
 [ext_resource type="Texture2D" uid="uid://c666auxj5strn" path="res://Sprites/Seal/seal_rune_circle01_ACTIVE.tga" id="5_klks8"]
+[ext_resource type="Texture2D" uid="uid://cox4hka47xbhg" path="res://Sprites/Seal/seal_rune_line02.tga" id="6_2ei7g"]
+[ext_resource type="Texture2D" uid="uid://7mofko82k4wb" path="res://Sprites/Seal/seal_rune_line03.tga" id="7_bvvu8"]
 [ext_resource type="Texture2D" uid="uid://0gbs47xkmsbo" path="res://Sprites/Seal/seal_rune_line01_ACTIVE.tga" id="7_nv6xj"]
+[ext_resource type="Texture2D" uid="uid://duy4pggpcv4kk" path="res://Sprites/Seal/seal_rune_tri02.tga" id="9_01net"]
 [ext_resource type="Texture2D" uid="uid://bmwdxy7qqumrr" path="res://Sprites/Seal/seal_rune_tri01_ACTIVE.tga" id="9_127hv"]
+[ext_resource type="Texture2D" uid="uid://bxkwqcpgedu61" path="res://Sprites/Seal/seal_rune_tri03.tga" id="10_oyyik"]
+[ext_resource type="Texture2D" uid="uid://daecdvemsoc2s" path="res://Sprites/Seal/seal_rune_circle02_ACTIVE.tga" id="12_gjqps"]
+[ext_resource type="Texture2D" uid="uid://d3lesloodgy6t" path="res://Sprites/Seal/seal_rune_circle03_ACTIVE.tga" id="13_utedr"]
+[ext_resource type="Texture2D" uid="uid://d30nrym8vbdhe" path="res://Sprites/Seal/seal_rune_line02_ACTIVE.tga" id="15_tr2uy"]
+[ext_resource type="Texture2D" uid="uid://c7042fritgv3b" path="res://Sprites/Seal/seal_rune_line03_ACTIVE.tga" id="16_0d686"]
+[ext_resource type="Texture2D" uid="uid://ct6thqrmr6tfy" path="res://Sprites/Seal/seal_rune_tri02_ACTIVE.tga" id="18_vmo7y"]
+[ext_resource type="Texture2D" uid="uid://oopvpmpr4n3i" path="res://Sprites/Seal/seal_rune_tri03_ACTIVE.tga" id="19_kpwvk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
 radius = 128.867
@@ -17,6 +29,7 @@ radius = 128.867
 position = Vector2(0, -65.335)
 collision_layer = 3
 script = ExtResource("1_lwe4x")
+rune_tex_array = [ExtResource("3_fu75b"), ExtResource("3_iapg5"), ExtResource("4_y03q4"), ExtResource("4_hounj"), ExtResource("6_2ei7g"), ExtResource("7_bvvu8"), ExtResource("5_iiwh0"), ExtResource("9_01net"), ExtResource("10_oyyik"), ExtResource("5_klks8"), ExtResource("12_gjqps"), ExtResource("13_utedr"), ExtResource("7_nv6xj"), ExtResource("15_tr2uy"), ExtResource("16_0d686"), ExtResource("9_127hv"), ExtResource("18_vmo7y"), ExtResource("19_kpwvk")]
 
 [node name="Rune_01" type="Sprite2D" parent="."]
 z_index = 1

@@ -1,40 +1,49 @@
 extends StaticBody2D
 
 class_name Seal
-var requiredRunes: Array[int] = [0,1,2]
+var requiredRunes: Array[int] = [0,0,0]
+
+@export var rune_tex_array : Array
+
+var tex_num : Array[int] = [0,0,0]
 
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-
+	print("Seal")
+	for i in range(len(requiredRunes)):
+		requiredRunes[i] = randi() % 3;
+		tex_num[i] = requiredRunes[i]*3  + randi()%3
+		get_child(i).set_texture(rune_tex_array[tex_num[i]])
+		
+	
+		
+		
+	
 
 func _testSeal() -> void:
+	
 	var orbsToTest = connectedOrbs.duplicate(true)
 	var foundOrb
 	var orbNotFound = false
 	var foundOrbLocation
-	var index = 0
-	for runeID in requiredRunes:
+
+	for i in range(len(requiredRunes)):
 		foundOrb = false;
 		for orb in orbsToTest:
-			print("id= ",  orb.runeID)
-			print ("checking", runeID)
-			if orb.runeID == runeID:
-				print("index= ", index)
+			if orb.runeID == requiredRunes[i]:
+				print("match")
 				foundOrbLocation = orbsToTest.bsearch(orb)
 				foundOrb = true
-				get_child(index).activate()
+			
+				get_child(i).set_texture(rune_tex_array[tex_num[i]+9])
 				break
 		if foundOrb:
 			orbsToTest.remove_at(foundOrbLocation)
 		else:
 			orbNotFound = true
-		index += 1
 	if orbNotFound:
 		print("Seal Not Broken")
 	else:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=23 format=3 uid="uid://gd8n11akhqei"]
 
-[ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
+[ext_resource type="Texture2D" uid="uid://581d1araycw6" path="res://Sprites/Tabletop/playspace_rough.tga" id="1_g5rbs"]
 [ext_resource type="Texture2D" uid="uid://dbadu0ki6ebp8" path="res://Sprites/Pipe/bubble_pipe_idle.tga" id="2_kqyoi"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
@@ -16,6 +16,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
+distance = 133.846
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbgjd"]
 atlas = ExtResource("4_rp1po")
@@ -87,30 +88,30 @@ shadow_offset = Vector2(0, 0)
 [node name="Root" type="Node2D"]
 
 [node name="Border" type="Sprite2D" parent="."]
-scale = Vector2(0.236458, 0.439062)
-texture = ExtResource("1_bjvi8")
+scale = Vector2(0.57, 0.57)
+texture = ExtResource("1_g5rbs")
 
 [node name="walls" type="StaticBody2D" parent="Border"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/walls"]
-position = Vector2(-1700, 0)
+position = Vector2(-900, 0)
 scale = Vector2(3.9, 3.9)
 shape = SubResource("WorldBoundaryShape2D_cudwi")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/walls"]
-position = Vector2(1700, 0)
+position = Vector2(900, 0)
 rotation = -3.14159
 scale = Vector2(3.9, 3.9)
 shape = SubResource("WorldBoundaryShape2D_cudwi")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Border/walls"]
-position = Vector2(0, -1111)
+position = Vector2(0, -1078.48)
 rotation = 1.5708
 scale = Vector2(3.9, 3.9)
 shape = SubResource("WorldBoundaryShape2D_cudwi")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Border/walls"]
-position = Vector2(0, 1111)
+position = Vector2(0, 1326.69)
 rotation = -1.5708
 scale = Vector2(3.9, 3.9)
 shape = SubResource("WorldBoundaryShape2D_cudwi")
@@ -160,6 +161,8 @@ texture = ExtResource("8_4nifx")
 hframes = 5
 
 [node name="Seal" parent="." instance=ExtResource("10_nturx")]
+position = Vector2(75, -17)
+scale = Vector2(0.5, 0.5)
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
