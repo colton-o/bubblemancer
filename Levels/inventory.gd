@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@export var ruin_tex = Array()
+@export var ruin_tex: Array = []
 var bubble_pos = Array()
 var size = 3
 
@@ -12,11 +12,12 @@ class bubble:
 var bubble_array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
+	for i in range(2):
 		var b = bubble.new()
-		b.ruin = randi() % 4
+		b.ruin = randi() % 3
 		b.ruin_Tex = ruin_tex[b.ruin]
 		bubble_array.append(b)
+		
 		
 		
 		

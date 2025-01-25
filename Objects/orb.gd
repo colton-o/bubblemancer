@@ -5,7 +5,7 @@ var active = true
 var collision
 var rune
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
-@export var runeID;
+var runeID;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
