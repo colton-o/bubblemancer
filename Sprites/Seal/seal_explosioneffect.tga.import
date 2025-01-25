@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cieyks2ddk6bj"
-path="res://.godot/imported/border.png-cbd1fefbc64f0bb4932e635cd093da8d.ctex"
+uid="uid://2gnly6jn62m7"
+path="res://.godot/imported/seal_explosioneffect.tga-fca737d3efba123137fb4e84b832eb93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/border.png"
-dest_files=["res://.godot/imported/border.png-cbd1fefbc64f0bb4932e635cd093da8d.ctex"]
+source_file="res://Sprites/Seal/seal_explosioneffect.tga"
+dest_files=["res://.godot/imported/seal_explosioneffect.tga-fca737d3efba123137fb4e84b832eb93.ctex"]
 
 [params]
 

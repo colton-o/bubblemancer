@@ -1,7 +1,7 @@
 extends Node2D
 
 var rot = 5
-var turns = 4
+var turns = 10
 @export var ORB : PackedScene
 
 func _ready() -> void:

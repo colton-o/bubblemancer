@@ -21,12 +21,16 @@ func _ready() -> void:
 			
 		get_child(i).set_texture(rune_tex_array[tex_num[i]])
 		
-	
 		
-	
-		
-		
-	
+func _process(delta: float) -> void:
+		if $AnimatedSprite2D.animation == "death":
+			if$AnimatedSprite2D.frame == 6:
+				$Rune_01.hide()
+				$Rune_02.hide()
+				$Rune_03.hide()
+				$Base.hide()
+			if$AnimatedSprite2D.frame == 11:
+				queue_free()
 
 func _testSeal() -> void:
 	
@@ -57,4 +61,4 @@ func _testSeal() -> void:
 
 func _breakSeal() -> void:
 	print("Seal Broken")
-	
+	$AnimatedSprite2D.play("death")
