@@ -25,6 +25,11 @@ func shoot():
 	var orb = ORB.instantiate()
 	orb.global_position = global_position
 	orb.global_rotation = global_rotation
+	var ruin_tex = $"../Inventory".bubble_array[0].ruin_Tex
+	
+	orb.get_child(2).set_texture(ruin_tex)
+
+	
 	get_node("/root").add_child(orb)
 
 	
