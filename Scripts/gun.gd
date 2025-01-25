@@ -29,7 +29,7 @@ func shoot():
 	var bubble_rune = $"../Inventory".bubble_array[0].rune
 	orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
 	orb.runeID = bubble_rune
-	get_node("/root").add_child(orb)
+	get_node("/root/Root").add_child(orb)
 	$"../Inventory".update_stash()
 	turns -= 1
 	$"../UI/Turn".text = "Turns: %s" % turns
