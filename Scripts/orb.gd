@@ -6,7 +6,7 @@ var collision
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
 var runeID
-
+@onready var bubbleSprite = $AnimatedSprite2D
 
 
 
@@ -14,7 +14,7 @@ var runeID
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	velocity = Vector2(0, -1*speed).rotated(rotation)
-
+	bubbleSprite.play("default")
 	
 	
 			
