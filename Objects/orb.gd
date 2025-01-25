@@ -4,6 +4,7 @@ class_name Orb
 var active = true
 var collision
 var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
+var runeID;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
