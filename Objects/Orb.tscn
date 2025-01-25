@@ -61,12 +61,12 @@ speed = 750
 scale = Vector2(1.71, 1.5)
 sprite_frames = SubResource("SpriteFrames_4wnah")
 autoplay = "default"
-frame_progress = 0.751262
+frame_progress = 0.329662
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_4xb85")
 
-[node name="RuneSprite" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.75, 1.75)
 texture = ExtResource("3_247cq")
 hframes = 5

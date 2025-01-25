@@ -1,4 +1,4 @@
-extends Sprite2D
+extends Node2D
 
 var rot = 5;
 @export var ORB : PackedScene
@@ -23,7 +23,7 @@ func _process(delta: float) -> void:
 func shoot():
 	print("shooting")
 	var orb = ORB.instantiate()
-	orb.global_position = global_position
+	orb.global_position = get_child(0).global_position
 	orb.global_rotation = global_rotation
 	var bubble_rune = $"../Inventory".bubble_array[0].rune
 	orb.get_child(2).set_texture($"../Inventory".rune_tex[bubble_rune])
