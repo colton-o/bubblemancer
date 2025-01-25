@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bflsladtih55q"]
+
+[ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Border" type="Sprite2D" parent="."]
+position = Vector2(2, 4.50001)
+scale = Vector2(0.121, 0.249609)
+texture = ExtResource("1_bjvi8")
+
+[node name="Camera2D" type="Camera2D" parent="."]
