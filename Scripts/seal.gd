@@ -36,24 +36,25 @@ func _testSeal() -> void:
 	
 	var orbsToTest = connectedOrbs.duplicate(true)
 	var foundOrb
-	var orbNotFound = false
-	var foundOrbLocation
+	var found
+	var NotFound = false
 
 	for i in range(len(requiredRunes)):
 		foundOrb = false;
+		found = false
 		for orb in orbsToTest:
 			if orb.runeID == requiredRunes[i]:
 				print("match")
-				foundOrbLocation = orbsToTest.bsearch(orb)
-				foundOrb = true
+				foundOrb = orb
+				found = true
 			
 				get_child(i).set_texture(rune_tex_array[tex_num[i]+9])
 				break
 		if foundOrb:
-			orbsToTest.remove_at(foundOrbLocation)
+			orbsToTest.erase(foundOrb)
 		else:
-			orbNotFound = true
-	if orbNotFound:
+			NotFound = true
+	if NotFound:
 		print("Seal Not Broken")
 	else:
 		_breakSeal()
