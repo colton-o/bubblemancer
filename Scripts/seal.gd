@@ -1,6 +1,6 @@
 extends StaticBody2D
 class_name Seal
-var requiredRuins: Array[int] = [0,0,0]
+var requiredRunes: Array[int] = [0,0,0]
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
 
@@ -18,9 +18,9 @@ func _testSeal() -> void:
 	var orbsToTest = connectedOrbs
 	var foundOrb
 	var foundOrbLocation
-	for ruinID in requiredRuins:
+	for runeID in requiredRunes:
 		for orb in orbsToTest:
-			if orb.ruinID == ruinID:
+			if orb.runeID == runeID:
 				foundOrbLocation = orbsToTest.bsearch(orb)
 				foundOrb = true
 				break
