@@ -7,9 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
 [ext_resource type="Texture2D" uid="uid://cwucg70wi4n6y" path="res://Sprites/wardrobe-custom-timber-tasmanian-oak-stained1.jpg" id="6_d1ycs"]
 [ext_resource type="Script" path="res://Levels/inventory.gd" id="7_wgrqd"]
-[ext_resource type="Texture2D" uid="uid://bl1y4dctu2guy" path="res://Sprites/download (1).jpeg" id="8_lspnj"]
-[ext_resource type="Texture2D" uid="uid://biabu1oxxwnnp" path="res://Sprites/download.jpeg" id="9_2hfh7"]
-[ext_resource type="Texture2D" uid="uid://cpu14ndsbrfyi" path="res://Sprites/download.png" id="10_djqoe"]
+[ext_resource type="Texture2D" uid="uid://c666auxj5strn" path="res://Sprites/Seal/seal_rune_circle01_ACTIVE.tga" id="8_4nifx"]
+[ext_resource type="Texture2D" uid="uid://d3lesloodgy6t" path="res://Sprites/Seal/seal_rune_circle03_ACTIVE.tga" id="9_fmhfv"]
+[ext_resource type="Texture2D" uid="uid://d30nrym8vbdhe" path="res://Sprites/Seal/seal_rune_line02_ACTIVE.tga" id="10_iwcby"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
 radius = 128.867
@@ -73,4 +73,4 @@ position = Vector2(686, 21)
 scale = Vector2(0.551149, 1.2023)
 texture = ExtResource("6_d1ycs")
 script = ExtResource("7_wgrqd")
-ruin_tex = [ExtResource("8_lspnj"), ExtResource("9_2hfh7"), ExtResource("10_djqoe")]
+rune_tex = [ExtResource("8_4nifx"), ExtResource("9_fmhfv"), ExtResource("10_iwcby")]

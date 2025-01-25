@@ -3,13 +3,8 @@ class_name Orb
 @export var speed = 0
 var active = true
 var collision
-var rune
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
-<<<<<<< HEAD
-var runeID;
-=======
-@export var runeID: int
->>>>>>> 2a18c174ae725a0cc5afaf91961e7c3a610f5b5d
+var runeID
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
