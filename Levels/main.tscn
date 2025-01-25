@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bflsladtih55q"]
+[gd_scene load_steps=8 format=3 uid="uid://bflsladtih55q"]
 
 [ext_resource type="Texture2D" uid="uid://cieyks2ddk6bj" path="res://Sprites/border.png" id="1_bjvi8"]
 [ext_resource type="Texture2D" uid="uid://c5y8i2ij2q5ix" path="res://Sprites/gun.tga" id="2_twinm"]
@@ -6,11 +6,52 @@
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
+radius = 128.867
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
+normal = Vector2(1, 0)
+
 [node name="Root" type="Node2D"]
+
+[node name="Orb_Level" type="StaticBody2D" parent="."]
+position = Vector2(0, -65.335)
+collision_layer = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Orb_Level"]
+texture = ExtResource("3_ln1rf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orb_Level"]
+shape = SubResource("CircleShape2D_183uq")
 
 [node name="Border" type="Sprite2D" parent="."]
 scale = Vector2(0.236458, 0.439062)
 texture = ExtResource("1_bjvi8")
+
+[node name="walls" type="StaticBody2D" parent="Border"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Border/walls"]
+position = Vector2(-1700, 0)
+scale = Vector2(3.9, 3.9)
+shape = SubResource("WorldBoundaryShape2D_cudwi")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/walls"]
+position = Vector2(1700, 0)
+rotation = -3.14159
+scale = Vector2(3.9, 3.9)
+shape = SubResource("WorldBoundaryShape2D_cudwi")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border/walls"]
+position = Vector2(0, -1111)
+rotation = 1.5708
+scale = Vector2(3.9, 3.9)
+shape = SubResource("WorldBoundaryShape2D_cudwi")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border/walls"]
+position = Vector2(0, 1111)
+rotation = -1.5708
+scale = Vector2(3.9, 3.9)
+shape = SubResource("WorldBoundaryShape2D_cudwi")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -21,7 +62,3 @@ texture = ExtResource("2_twinm")
 offset = Vector2(6.185, -123.8)
 script = ExtResource("3_txmbr")
 ORB = ExtResource("4_40082")
-
-[node name="Orb" type="Sprite2D" parent="."]
-position = Vector2(0, -65.335)
-texture = ExtResource("3_ln1rf")
