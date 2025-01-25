@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			connectedOrbs.append(collision.get_collider())
 			collision.get_collider().connectedOrbs.append(self)
 			velocity = Vector2.ZERO
-			
+			_testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [1,1,1])
 			active = false
 		
 		elif (collision.get_collider() is Seal):
@@ -51,6 +51,27 @@ func _physics_process(delta: float) -> void:
 			active = false
 		
 	
+func _testFormula(currentOrb, collectedOrbs, formula : Array) -> void:
+	print("testing formula")
+	for runeID in formula:
+		if currentOrb.runeID == runeID:
+			collectedOrbs.append(currentOrb)
+			var newCollectedOrbs = collectedOrbs.duplicate(true)
+			var newFormula = formula.duplicate(true)
+			newFormula.erase(currentOrb.runeID)
+			if newFormula.is_empty():
+				_completeFormula(collectedOrbs)
+				return
+			else:
+				for orb in currentOrb.connectedOrbs:
+					var num = newCollectedOrbs.count(orb)
+					if(num == 0):
+						_testFormula(orb, newCollectedOrbs, newFormula)
+			
 	
+func _completeFormula(orbsUsed) -> void:
+	for orb in orbsUsed:
+		orb._pop()
 	
-	
+func _pop() -> void:
+	queue_free()
