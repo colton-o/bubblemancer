@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Seal
 var requiredRuins: Array[int] = []
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 
@@ -25,5 +26,11 @@ func _testSeal() -> void:
 		if foundOrb:
 			orbsToTest.remove_at(foundOrbLocation)
 		else:
-			break
+			pass
+	_breakSeal()
+	pass
+
+func _breakSeal() -> void:
+	
+	
 	pass
