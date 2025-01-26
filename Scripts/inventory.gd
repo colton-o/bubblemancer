@@ -2,7 +2,7 @@ extends Node2D
 
 @export var rune_tex: Array
 
-var size = 3
+var size = 5
 var tex_size = 3
 
 class bubble:
@@ -12,7 +12,7 @@ class bubble:
 var bubble_array = []
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for i in range(3):
+	for i in range(size):
 		
 		var b = bubble.new()
 		b.rune = randi() % tex_size
