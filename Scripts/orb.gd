@@ -64,7 +64,7 @@ func _testFormulas() -> void:
 	var orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [0,0,0])
 	if orbs.size() > 0:
 		_completeFormula(orbs)
-		$"../PowerUps".extra_turn(1)
+		$"../PowerUps".extra_turn(5)
 		print("Give Life")
 		return
 	
@@ -72,7 +72,7 @@ func _testFormulas() -> void:
 	orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [1,1,1])
 	if orbs.size() > 0:
 		_completeFormula(orbs)
-		$"../PowerUps".extra_turn(1)
+		$"../PowerUps".extra_turn(5)
 		print("Take Life")
 		return
 		
@@ -80,7 +80,7 @@ func _testFormulas() -> void:
 	orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [2,2,2])
 	if orbs.size() > 0:
 		_completeFormula(orbs)
-		$"../PowerUps".extra_turn(1)
+		$"../PowerUps".extra_turn(5)
 		print("Give Gold")
 		return
 	

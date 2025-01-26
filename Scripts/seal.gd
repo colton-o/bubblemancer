@@ -70,6 +70,7 @@ func _testSeal() -> void:
 
 func _breakSeal() -> void:
 	print("Seal Broken")
+	$"../PowerUps".extra_turn(5)
 	$"..".current_score += 1
 	$AnimatedSprite2D.play("death")
 	for orb in connectedOrbs:
