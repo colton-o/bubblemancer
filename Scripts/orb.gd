@@ -6,6 +6,7 @@ var collision
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 var connectedSeal
 var runeID
+@export var stuck = false
 @export var bounce_sfx: Array[AudioStream]
 @export var impact_sfx: Array[AudioStream]
 @export var pop_sfx: Array[AudioStream]
@@ -33,18 +34,24 @@ func _physics_process(delta: float) -> void:
 			velocity = velocity.bounce(collision.get_normal())
 			play_sfx(bounce_sfx[randi() %3])
 		elif (collision.get_collider() is Orb):
-			connectedOrbs.append(collision.get_collider())
-			collision.get_collider().connectedOrbs.append(self)
-			velocity = Vector2.ZERO
-			play_sfx(impact_sfx[randi() %3])
-			_testFormulas()
-			active = false
+			if collision.get_collider().stuck:
+				connectedOrbs.append(collision.get_collider())
+				collision.get_collider().connectedOrbs.append(self)
+				velocity = Vector2.ZERO
+				play_sfx(impact_sfx[randi() %3])
+				_testFormulas()
+				active = false
+				stuck = true
+			else:
+				velocity = velocity.bounce(collision.get_normal())
+				play_sfx(bounce_sfx[randi() %3])
 		elif (collision.get_collider() is Seal):
 			collision.get_collider().connectedOrbs.append(self)
 			collision.get_collider()._testSeal()
 			velocity = Vector2.ZERO
 			connectedSeal = collision.get_collider()
 			active = false
+			stuck = true
 			play_sfx(seal_sfx[randi() %3])
 		
 		else:
