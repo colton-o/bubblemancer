@@ -106,6 +106,8 @@ func _pop() -> void:
 		connectedSeal._testSeal()
 	for orb in connectedOrbs:
 		orb.connectedOrbs.erase(self)
+	$BubbleSprite.play("pop")
+	await get_tree().create_timer(.5).timeout
 	queue_free()
 	
 func play_sfx(sound):

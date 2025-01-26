@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4feeix6dhioc"]
+[gd_scene load_steps=31 format=3 uid="uid://c4feeix6dhioc"]
 
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="2_fcsqy"]
 [ext_resource type="Script" path="res://Scripts/orb.gd" id="2_ibo17"]
@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://dtte8t1myoj1k" path="res://Audio/SFX/Orb/orb-impact-1.wav" id="11_1p4qb"]
 [ext_resource type="AudioStream" uid="uid://drdejlank2g6t" path="res://Audio/SFX/Orb/orb-impact-2.wav" id="12_hyp74"]
 [ext_resource type="AudioStream" uid="uid://dltied8tesb4y" path="res://Audio/SFX/Orb/orb-impact-3.wav" id="13_wlx3g"]
+[ext_resource type="Texture2D" uid="uid://bstu7uj6unkvk" path="res://Sprites/Bubble/bubble_burst.tga" id="15_dvkms"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4xb85"]
 radius = 23.3452
@@ -38,6 +39,38 @@ region = Rect2(192, 0, 64, 64)
 atlas = ExtResource("2_fcsqy")
 region = Rect2(256, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kje8v"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bks6o"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajnbe"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk7pc"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_en73d"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5x1c"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25gfh"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwa44"]
+atlas = ExtResource("15_dvkms")
+region = Rect2(448, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_0islq"]
 animations = [{
 "frames": [{
@@ -59,6 +92,35 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kje8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bks6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajnbe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk7pc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_en73d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5x1c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25gfh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwa44")
+}],
+"loop": false,
+"name": &"pop",
+"speed": 20.0
 }]
 
 [node name="Orb" type="CharacterBody2D"]
@@ -84,5 +146,7 @@ hframes = 5
 [node name="BubbleSprite" type="AnimatedSprite2D" parent="."]
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_0islq")
+animation = &"pop"
 autoplay = "default"
-frame_progress = 0.119788
+frame = 7
+frame_progress = 1.0
