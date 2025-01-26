@@ -49,6 +49,7 @@ func _testSeal() -> void:
 		foundOrb = false;
 		found = false
 		for orb in orbsToTest:
+			if !orb: break
 			if orb.runeID == requiredRunes[i]:
 				print("match")
 				foundOrb = orb
@@ -73,5 +74,7 @@ func _breakSeal() -> void:
 	$AnimatedSprite2D.play("death")
 	for orb in connectedOrbs:
 		for orb2 in orb.connectedOrbs:
+			if !orb2: break
 			orb2._pop()
+		if !orb: break
 		orb._pop()
