@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://gd8n11akhqei"]
+[gd_scene load_steps=25 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Texture2D" uid="uid://581d1araycw6" path="res://Sprites/Tabletop/playspace_rough.tga" id="1_g5rbs"]
 [ext_resource type="Texture2D" uid="uid://dbadu0ki6ebp8" path="res://Sprites/Pipe/bubble_pipe_idle.tga" id="2_kqyoi"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="3_txmbr"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="4_40082"]
 [ext_resource type="Texture2D" uid="uid://bn1gp2pehi0me" path="res://Sprites/Pipe/bubble_pipe_shoot.tga" id="4_rp1po"]
+[ext_resource type="AudioStream" uid="uid://yehyebxgjd6k" path="res://Audio/SFX/Bubble/bubble-shot-1.wav" id="5_n04h5"]
+[ext_resource type="AudioStream" uid="uid://d1b7tovm4m5hx" path="res://Audio/SFX/Bubble/bubble-shot-2.wav" id="6_7uka3"]
+[ext_resource type="AudioStream" uid="uid://bj3h442xv5fwl" path="res://Audio/SFX/Bubble/bubble-shot-3.wav" id="7_cjfmm"]
 [ext_resource type="Texture2D" uid="uid://dl8tlcd20crwu" path="res://Sprites/Bubble/bubble_circle_rune.tga" id="7_g5ltj"]
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="7_wgrqd"]
 [ext_resource type="Texture2D" uid="uid://by1m5i0ar1f8c" path="res://Sprites/Bubble/bubble_stroke_rune.tga" id="8_ighqw"]
@@ -125,6 +128,7 @@ position = Vector2(0, 489.805)
 scale = Vector2(1, 0.571)
 script = ExtResource("3_txmbr")
 ORB = ExtResource("4_40082")
+shoot_fx = Array[AudioStream]([ExtResource("5_n04h5"), ExtResource("6_7uka3"), ExtResource("7_cjfmm")])
 
 [node name="Muzzle" type="Node2D" parent="Gun"]
 position = Vector2(0, -250.13)
@@ -185,3 +189,7 @@ offset_right = -499.0
 offset_bottom = -243.0
 text = "Turns"
 label_settings = SubResource("LabelSettings_likt5")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]

@@ -3,6 +3,7 @@ extends Node2D
 var rot = 5
 var turns = 10
 @export var ORB : PackedScene
+@export var shoot_fx : Array[AudioStream]
 
 func _ready() -> void:
 	$"../UI/Turn".text = "Turns: %s" % turns
@@ -22,6 +23,8 @@ func _process(delta: float) -> void:
 	
 	
 func shoot():
+	$"../SFX".set_stream(shoot_fx[randi() %3])
+	$"../SFX".play()
 	$Sprite.play("Shoot")
 	print("shooting")
 	var orb = ORB.instantiate()

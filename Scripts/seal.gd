@@ -8,7 +8,8 @@ var requiredRunes: Array[int] = [0,0,0]
 var tex_num : Array[int] = [10,10,10]
 
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
-
+@export var break_sfx : AudioStream
+var alive = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,14 +24,19 @@ func _ready() -> void:
 		
 		
 func _process(delta: float) -> void:
-		if $AnimatedSprite2D.animation == "death":
-			if$AnimatedSprite2D.frame == 6:
-				$Rune_01.hide()
-				$Rune_02.hide()
-				$Rune_03.hide()
-				$Base.hide()
-			if$AnimatedSprite2D.frame == 11:
-				queue_free()
+
+	if $AnimatedSprite2D.animation == "death":
+		if alive:
+			$"../SFX".set_stream(break_sfx)
+			$"../SFX".play()
+			alive = false
+		if$AnimatedSprite2D.frame == 6:
+			$Rune_01.hide()
+			$Rune_02.hide()
+			$Rune_03.hide()
+			$Base.hide()
+		if$AnimatedSprite2D.frame == 11:
+			queue_free()
 
 func _testSeal() -> void:
 	
@@ -63,4 +69,5 @@ func _testSeal() -> void:
 
 func _breakSeal() -> void:
 	print("Seal Broken")
+
 	$AnimatedSprite2D.play("death")

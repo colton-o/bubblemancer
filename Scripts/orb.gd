@@ -6,6 +6,10 @@ var collision
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
 var connectedSeal
 var runeID
+@export var bounce_sfx: Array[AudioStream]
+@export var impact_sfx: Array[AudioStream]
+@export var pop_sfx: Array[AudioStream]
+@export var seal_sfx: Array[AudioStream]
 
 
 	
@@ -24,11 +28,13 @@ func _physics_process(delta: float) -> void:
 			
 		if colName == "walls":
 			velocity = velocity.bounce(collision.get_normal())
+			play_sfx(bounce_sfx[randi() %3])
 		
 		elif (collision.get_collider() is Orb):
 			connectedOrbs.append(collision.get_collider())
 			collision.get_collider().connectedOrbs.append(self)
 			velocity = Vector2.ZERO
+			play_sfx(impact_sfx[randi() %3])
 			_testFormulas()
 			active = false
 		elif (collision.get_collider() is Seal):
@@ -37,6 +43,7 @@ func _physics_process(delta: float) -> void:
 			velocity = Vector2.ZERO
 			connectedSeal = collision.get_collider()
 			active = false
+			play_sfx(seal_sfx[randi() %3])
 		
 		else:
 			velocity = Vector2.ZERO
@@ -86,13 +93,20 @@ func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 	return Array([], TYPE_OBJECT, "Node", Orb)
 	
 func _completeFormula(orbsUsed) -> void:
+	
 	for orb in orbsUsed:
 		orb._pop()
 	
 func _pop() -> void:
+	play_sfx(pop_sfx[randi()%3])
 	if connectedSeal:
 		connectedSeal.connectedOrbs.erase(self)
 		connectedSeal._testSeal()
 	for orb in connectedOrbs:
 		orb.connectedOrbs.erase(self)
 	queue_free()
+	
+func play_sfx(sound):
+	$"../SFX".set_stream(sound)
+	$"../SFX".play()
+	

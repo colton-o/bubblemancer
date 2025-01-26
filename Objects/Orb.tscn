@@ -1,7 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4feeix6dhioc"]
+[gd_scene load_steps=22 format=3 uid="uid://c4feeix6dhioc"]
 
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="2_fcsqy"]
 [ext_resource type="Script" path="res://Scripts/orb.gd" id="2_ibo17"]
+[ext_resource type="AudioStream" uid="uid://b0cwjqd67fej5" path="res://Audio/SFX/Bubble/bubble-bounce-1.wav" id="3_bmxd3"]
+[ext_resource type="AudioStream" uid="uid://cm7cq66k4cbkd" path="res://Audio/SFX/Bubble/bubble-bounce-2.wav" id="3_e2r3u"]
+[ext_resource type="AudioStream" uid="uid://cbuh28ur6avru" path="res://Audio/SFX/Bubble/bubble-bounce-3.wav" id="4_nay6l"]
+[ext_resource type="AudioStream" uid="uid://bi6aibpvypb2h" path="res://Audio/SFX/Bubble/bubble-impact-1.wav" id="5_3tr4x"]
+[ext_resource type="AudioStream" uid="uid://c0rnv0qexq5vx" path="res://Audio/SFX/Bubble/bubble-impact-2.wav" id="6_u2it6"]
+[ext_resource type="AudioStream" uid="uid://cpn4mosfg36v2" path="res://Audio/SFX/Bubble/bubble-impact-3.wav" id="7_1gpv0"]
+[ext_resource type="AudioStream" uid="uid://depo40216cje7" path="res://Audio/SFX/Bubble/bubble-pop-1.wav" id="8_d1f2g"]
+[ext_resource type="AudioStream" uid="uid://dtsv7kmb8itoj" path="res://Audio/SFX/Bubble/bubble-pop-2.wav" id="9_p2hkg"]
+[ext_resource type="AudioStream" uid="uid://cvn5rf1vy8hak" path="res://Audio/SFX/Bubble/bubble-pop-3.wav" id="10_hclu6"]
+[ext_resource type="AudioStream" uid="uid://dtte8t1myoj1k" path="res://Audio/SFX/Orb/orb-impact-1.wav" id="11_1p4qb"]
+[ext_resource type="AudioStream" uid="uid://drdejlank2g6t" path="res://Audio/SFX/Orb/orb-impact-2.wav" id="12_hyp74"]
+[ext_resource type="AudioStream" uid="uid://dltied8tesb4y" path="res://Audio/SFX/Orb/orb-impact-3.wav" id="13_wlx3g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4xb85"]
 radius = 23.3452
@@ -50,11 +62,16 @@ animations = [{
 }]
 
 [node name="Orb" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
 disable_mode = 1
 collision_layer = 3
 slide_on_ceiling = false
 script = ExtResource("2_ibo17")
 speed = 750
+bounce_sfx = Array[AudioStream]([ExtResource("3_bmxd3"), ExtResource("3_e2r3u"), ExtResource("4_nay6l")])
+impact_sfx = Array[AudioStream]([ExtResource("5_3tr4x"), ExtResource("6_u2it6"), ExtResource("7_1gpv0")])
+pop_sfx = Array[AudioStream]([ExtResource("8_d1f2g"), ExtResource("9_p2hkg"), ExtResource("10_hclu6")])
+seal_sfx = Array[AudioStream]([ExtResource("11_1p4qb"), ExtResource("12_hyp74"), ExtResource("13_wlx3g")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.4, 1.4)
