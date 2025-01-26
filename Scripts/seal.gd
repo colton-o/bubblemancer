@@ -69,5 +69,5 @@ func _testSeal() -> void:
 
 func _breakSeal() -> void:
 	print("Seal Broken")
-
+	$"..".current_score += 1
 	$AnimatedSprite2D.play("death")
