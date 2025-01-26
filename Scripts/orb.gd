@@ -87,6 +87,7 @@ func _testFormulas() -> void:
 	
 func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 	print("testing formula")
+	if !currentOrb: return Array([], TYPE_OBJECT, "Node", Orb)
 	for runeID in formula:
 		if currentOrb.runeID == runeID:
 			collectedOrbs.append(currentOrb)
@@ -98,6 +99,7 @@ func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 				return collectedOrbs
 			else:
 				for orb in currentOrb.connectedOrbs:
+					if !orb: break
 					var num = newCollectedOrbs.count(orb)
 					if(num == 0):
 						return _testFormula(orb, newCollectedOrbs, newFormula)
@@ -106,6 +108,7 @@ func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 func _completeFormula(orbsUsed) -> void:
 	
 	for orb in orbsUsed:
+		if !orb: break
 		orb._pop()
 	
 func _pop() -> void:
@@ -114,6 +117,7 @@ func _pop() -> void:
 		connectedSeal.connectedOrbs.erase(self)
 		connectedSeal._testSeal()
 	for orb in connectedOrbs:
+		if !orb: break
 		orb.connectedOrbs.erase(self)
 	$BubbleSprite.play("pop")
 	await get_tree().create_timer(.5).timeout
