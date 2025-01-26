@@ -1,6 +1,6 @@
 extends Node2D
 
-var rot = 5
+var rot = 2
 var turns = 10
 @export var ORB : PackedScene
 @export var shoot_fx : Array[AudioStream]
