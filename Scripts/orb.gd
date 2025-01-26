@@ -56,7 +56,6 @@ func _physics_process(delta: float) -> void:
 		
 		else:
 			velocity = Vector2.ZERO
-			
 			active = false
 		
 func _testFormulas() -> void:
@@ -91,16 +90,8 @@ func _testFormulas() -> void:
 		
 		print("Bubbles")
 		await get_tree().create_timer(.5, true).timeout
-		for i in 4:
-			print("Bub")
-			var orb = ORB.instantiate()
-			orb.global_position = self.global_position + Vector2(randf_range(-2, 2), randf_range(-2, 2))
-			orb.global_rotation = randf()
-			var bubble_rune = randi() % 3
-			orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
-			orb.runeID = bubble_rune
-			orb.speed = 1000
-			get_node("/root/Root").add_child(orb)
+		$"../bubbles_for_Miles".position = self.position
+		$"../bubbles_for_Miles".bubbleshit(ORB)
 		return
 	
 	

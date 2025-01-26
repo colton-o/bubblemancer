@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://gd8n11akhqei"]
+[gd_scene load_steps=44 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Script" path="res://Levels/manager.gd" id="1_0igco"]
 [ext_resource type="Script" path="res://Scripts/powers.gd" id="2_sld6f"]
@@ -15,11 +15,12 @@
 [ext_resource type="Texture2D" uid="uid://by1m5i0ar1f8c" path="res://Sprites/Bubble/bubble_stroke_rune.tga" id="13_pigi6"]
 [ext_resource type="Texture2D" uid="uid://dcadn0auhi4fv" path="res://Sprites/Bubble/bubble_tri_rune.tga" id="14_nymw6"]
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="15_7crpp"]
-[ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/Seal.tscn" id="15_iompg"]
+[ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/seal.tscn" id="15_iompg"]
 [ext_resource type="FontFile" uid="uid://cvfn2glm3782q" path="res://ArcaneNine-eZP1x.ttf" id="16_hgmf1"]
 [ext_resource type="Texture2D" uid="uid://c4724ho8ihao3" path="res://Sprites/formula.png" id="18_d71ce"]
 [ext_resource type="AudioStream" uid="uid://cdkcvgyigqniv" path="res://Audio/Music/bubblemancer-level-music-low.wav" id="18_runn3"]
 [ext_resource type="Texture2D" uid="uid://bmx5e7w51hgno" path="res://Sprites/image.png" id="19_wnkqf"]
+[ext_resource type="Script" path="res://Levels/bubbles_for_miles.gd" id="21_322d3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
@@ -358,3 +359,6 @@ texture = ExtResource("18_d71ce")
 position = Vector2(-671.125, 175.238)
 scale = Vector2(1.82302, 1.82302)
 texture = ExtResource("19_wnkqf")
+
+[node name="bubbles_for_Miles" type="Node2D" parent="."]
+script = ExtResource("21_322d3")
