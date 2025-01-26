@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://vrjb2vsqy18t"]
+[gd_scene load_steps=27 format=3 uid="uid://vrjb2vsqy18t"]
 
 [ext_resource type="Script" path="res://Levels/manager.gd" id="1_1l132"]
 [ext_resource type="Script" path="res://Scripts/powers.gd" id="2_jxcbm"]
@@ -14,8 +14,9 @@
 [ext_resource type="Texture2D" uid="uid://dl8tlcd20crwu" path="res://Sprites/Bubble/bubble_circle_rune.tga" id="12_3qfhh"]
 [ext_resource type="Texture2D" uid="uid://by1m5i0ar1f8c" path="res://Sprites/Bubble/bubble_stroke_rune.tga" id="13_jgsyl"]
 [ext_resource type="Texture2D" uid="uid://dcadn0auhi4fv" path="res://Sprites/Bubble/bubble_tri_rune.tga" id="14_wg8s2"]
-[ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/seal.tscn" id="15_ad6vf"]
+[ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/Seal.tscn" id="15_ad6vf"]
 [ext_resource type="FontFile" uid="uid://cvfn2glm3782q" path="res://ArcaneNine-eZP1x.ttf" id="16_7caeh"]
+[ext_resource type="AudioStream" uid="uid://csolfmumq8hu8" path="res://Audio/Music/bubblemancer-level-music-high.mp3" id="17_5wgrr"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
@@ -201,3 +202,5 @@ label_settings = SubResource("LabelSettings_likt5")
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_5wgrr")
+autoplay = true
