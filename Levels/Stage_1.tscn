@@ -17,8 +17,8 @@
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="15_7crpp"]
 [ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/Seal.tscn" id="15_iompg"]
 [ext_resource type="FontFile" uid="uid://cvfn2glm3782q" path="res://ArcaneNine-eZP1x.ttf" id="16_hgmf1"]
-[ext_resource type="AudioStream" uid="uid://leseuk63hj2c" path="res://Audio/Music/bubblemancer-level-music-low.mp3" id="17_qturg"]
 [ext_resource type="Texture2D" uid="uid://c4724ho8ihao3" path="res://Sprites/formula.png" id="18_d71ce"]
+[ext_resource type="AudioStream" uid="uid://cdkcvgyigqniv" path="res://Audio/Music/bubblemancer-level-music-low.wav" id="18_runn3"]
 [ext_resource type="Texture2D" uid="uid://bmx5e7w51hgno" path="res://Sprites/image.png" id="19_wnkqf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
@@ -346,7 +346,7 @@ label_settings = SubResource("LabelSettings_likt5")
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_qturg")
+stream = ExtResource("18_runn3")
 autoplay = true
 
 [node name="Formula" type="Sprite2D" parent="."]
