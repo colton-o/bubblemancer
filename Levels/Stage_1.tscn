@@ -90,7 +90,7 @@ shadow_offset = Vector2(0, 0)
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_0igco")
-target_score = 1
+target_score = 2
 level = 1
 
 [node name="PowerUps" type="Node2D" parent="."]
