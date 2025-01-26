@@ -11,7 +11,7 @@ var runeID
 @export var impact_sfx: Array[AudioStream]
 @export var pop_sfx: Array[AudioStream]
 @export var seal_sfx: Array[AudioStream]
-
+var ORB = load("res://Objects/Orb.tscn")
 
 	
 # Called when the node enters the scene tree for the first time.
@@ -82,6 +82,25 @@ func _testFormulas() -> void:
 		_completeFormula(orbs)
 		$"../PowerUps".extra_turn(5)
 		print("Give Gold")
+		return
+	
+	print("Test Bubble Formula")
+	orbs = _testFormula(self, Array([], TYPE_OBJECT, "Node", Orb), [0,1,2])
+	if orbs.size() > 0:
+		_completeFormula(orbs)
+		
+		print("Bubbles")
+		await get_tree().create_timer(.5, true).timeout
+		for i in 4:
+			print("Bub")
+			var orb = ORB.instantiate()
+			orb.global_position = self.global_position + Vector2(randf_range(-2, 2), randf_range(-2, 2))
+			orb.global_rotation = randf()
+			var bubble_rune = randi() % 3
+			orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
+			orb.runeID = bubble_rune
+			orb.speed = 1000
+			get_node("/root/Root").add_child(orb)
 		return
 	
 	
