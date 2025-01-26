@@ -29,7 +29,9 @@ func _physics_process(delta: float) -> void:
 		if colName == "walls":
 			velocity = velocity.bounce(collision.get_normal())
 			play_sfx(bounce_sfx[randi() %3])
-		
+		elif colName == "Bouncers":
+			velocity = velocity.bounce(collision.get_normal())
+			play_sfx(bounce_sfx[randi() %3])
 		elif (collision.get_collider() is Orb):
 			connectedOrbs.append(collision.get_collider())
 			collision.get_collider().connectedOrbs.append(self)

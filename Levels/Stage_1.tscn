@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://gd8n11akhqei"]
+[gd_scene load_steps=43 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Script" path="res://Levels/manager.gd" id="1_0igco"]
 [ext_resource type="Script" path="res://Scripts/powers.gd" id="2_sld6f"]
@@ -24,6 +24,51 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
 distance = 133.846
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4rkw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fohh"]
+atlas = ExtResource("15_7crpp")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emx7k"]
+atlas = ExtResource("15_7crpp")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4at6"]
+atlas = ExtResource("15_7crpp")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hntl"]
+atlas = ExtResource("15_7crpp")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ceem8"]
+atlas = ExtResource("15_7crpp")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o1l8n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fohh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_emx7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4at6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hntl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ceem8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lbgjd"]
 atlas = ExtResource("9_7ir28")
@@ -173,6 +218,48 @@ rotation = -1.5708
 scale = Vector2(3.9, 3.9)
 shape = SubResource("WorldBoundaryShape2D_cudwi")
 
+[node name="Bouncers" type="StaticBody2D" parent="Border"]
+
+[node name="Bouncer" type="CollisionShape2D" parent="Border/Bouncers"]
+position = Vector2(84.507, 0)
+scale = Vector2(2.145, 2.145)
+shape = SubResource("CircleShape2D_p4rkw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Border/Bouncers/Bouncer"]
+scale = Vector2(0.615, 0.615)
+sprite_frames = SubResource("SpriteFrames_o1l8n")
+autoplay = "default"
+
+[node name="Bouncer2" type="CollisionShape2D" parent="Border/Bouncers"]
+position = Vector2(-184.507, 233.803)
+scale = Vector2(2.145, 2.145)
+shape = SubResource("CircleShape2D_p4rkw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Border/Bouncers/Bouncer2"]
+scale = Vector2(0.615, 0.615)
+sprite_frames = SubResource("SpriteFrames_o1l8n")
+autoplay = "default"
+
+[node name="Bouncer3" type="CollisionShape2D" parent="Border/Bouncers"]
+position = Vector2(274.648, 312.676)
+scale = Vector2(2.145, 2.145)
+shape = SubResource("CircleShape2D_p4rkw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Border/Bouncers/Bouncer3"]
+scale = Vector2(0.615, 0.615)
+sprite_frames = SubResource("SpriteFrames_o1l8n")
+autoplay = "default"
+
+[node name="Bouncer4" type="CollisionShape2D" parent="Border/Bouncers"]
+position = Vector2(-97.1831, -339.437)
+scale = Vector2(2.145, 2.145)
+shape = SubResource("CircleShape2D_p4rkw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Border/Bouncers/Bouncer4"]
+scale = Vector2(0.615, 0.615)
+sprite_frames = SubResource("SpriteFrames_o1l8n")
+autoplay = "default"
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Gun" type="Node2D" parent="."]
@@ -234,11 +321,11 @@ sprite_frames = SubResource("SpriteFrames_f6gvp")
 autoplay = "default"
 
 [node name="Seal" parent="." instance=ExtResource("15_iompg")]
-position = Vector2(138, -339)
+position = Vector2(172, -339)
 scale = Vector2(0.5, 0.5)
 
 [node name="Seal2" parent="." instance=ExtResource("15_iompg")]
-position = Vector2(-138, -205)
+position = Vector2(-172, -205)
 scale = Vector2(0.5, 0.5)
 
 [node name="UI" type="Control" parent="."]
