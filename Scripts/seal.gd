@@ -71,3 +71,7 @@ func _breakSeal() -> void:
 	print("Seal Broken")
 	$"..".current_score += 1
 	$AnimatedSprite2D.play("death")
+	for orb in connectedOrbs:
+		for orb2 in orb.connectedOrbs:
+			orb2._pop()
+		orb._pop()
