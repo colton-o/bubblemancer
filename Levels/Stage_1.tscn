@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://c4724ho8ihao3" path="res://Sprites/formula.png" id="18_d71ce"]
 [ext_resource type="AudioStream" uid="uid://cdkcvgyigqniv" path="res://Audio/Music/bubblemancer-level-music-low.wav" id="18_runn3"]
 [ext_resource type="Texture2D" uid="uid://bmx5e7w51hgno" path="res://Sprites/image.png" id="19_wnkqf"]
-[ext_resource type="Script" path="res://Levels/bubbles_for_miles.gd" id="21_322d3"]
+[ext_resource type="PackedScene" uid="uid://cytk1we270lpb" path="res://Objects/bubbles_for_miles.tscn" id="21_fpugn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cudwi"]
 normal = Vector2(1, 0)
@@ -348,7 +348,6 @@ label_settings = SubResource("LabelSettings_likt5")
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_runn3")
-autoplay = true
 
 [node name="Formula" type="Sprite2D" parent="."]
 position = Vector2(672.063, 92.6866)
@@ -360,5 +359,4 @@ position = Vector2(-671.125, 175.238)
 scale = Vector2(1.82302, 1.82302)
 texture = ExtResource("19_wnkqf")
 
-[node name="bubbles_for_Miles" type="Node2D" parent="."]
-script = ExtResource("21_322d3")
+[node name="bubbles_for_Miles" parent="." instance=ExtResource("21_fpugn")]

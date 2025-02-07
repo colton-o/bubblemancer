@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cytk1we270lpb"]
+
+[ext_resource type="Script" path="res://Levels/bubbles_for_miles.gd" id="1_xkbvq"]
+
+[node name="bubbles_for_Miles" type="Node2D"]
+script = ExtResource("1_xkbvq")
