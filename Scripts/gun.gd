@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("shoot"):
 		if can_shoot == true:
-				shoot(1)
+				shoot(3)
 	rotate(xAxis * rot * delta)
 	
 	if(transform.get_rotation() > 1):
@@ -35,6 +35,7 @@ func shoot(numBubbles: int):
 	$"../UI/Turn".text = "Turns: %s" % turns
 	
 	for i in numBubbles:
+		$"../Inventory/AnimationPlayer".play("RESET")
 		$"../SFX".set_stream(shoot_fx[randi() %3])
 		$"../SFX".play()
 		$Sprite.play("Shoot")
@@ -46,6 +47,7 @@ func shoot(numBubbles: int):
 		orb.runeID = bubble_rune
 		get_node("/root/Root").add_child(orb)
 		$"../Inventory".update_stash()
+		$"../Inventory/AnimationPlayer".play("Move_runes")
 		await get_tree().create_timer(.1).timeout
 	
 	if(turns == 0):

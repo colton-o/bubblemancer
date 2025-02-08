@@ -29,5 +29,6 @@ func update_stash():
 	bubble_array[size-1].rune = randi() % tex_size
 	get_child(size-1).set_texture(rune_tex[bubble_array[size-1].rune])
 	
+	
 		
 		
