@@ -122,7 +122,7 @@ func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 				return collectedOrbs
 			else:
 				for orb in currentOrb.connectedOrbs:
-					if orb == null: break
+					if orb == null: continue
 					var num = newCollectedOrbs.count(orb)
 					if(num == 0):
 						return _testFormula(orb, newCollectedOrbs, newFormula)
@@ -131,9 +131,21 @@ func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
 func _completeFormula(orbsUsed) -> void:
 	
 	for orb in orbsUsed:
-		if orb == null: break
+		if orb == null: continue
 		orb._pop()
 	
+func _connectedToSeal(testedOrbs : Array) -> bool:
+	if connectedSeal != null:
+		return true
+	else:
+		for orb in connectedOrbs:
+			if orb == null: continue
+			if testedOrbs.count(orb) == 0:
+				testedOrbs.append(self)
+				if orb._connectedToSeal(testedOrbs): return true
+		_pop()
+		return false
+				
 func _pop() -> void:
 	#play_sfx(pop_sfx[randi()%3])
 	pop_sfx.play()
@@ -142,8 +154,9 @@ func _pop() -> void:
 			connectedSeal.connectedOrbs.erase(self)
 			connectedSeal._testSeal()
 	for orb in connectedOrbs:
-		if orb == null: break
+		if orb == null: continue
 		orb.connectedOrbs.erase(self)
+		orb._connectedToSeal(Array([], TYPE_OBJECT, "Node", Orb))
 	$BubbleSprite.play("pop")
 	await get_tree().create_timer(.5).timeout
 	queue_free()
