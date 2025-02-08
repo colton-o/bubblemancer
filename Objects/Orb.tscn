@@ -182,7 +182,7 @@ max_polyphony = 3
 
 [node name="BubbleImpact" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_sma2t")
-volume_db = -8.0
+volume_db = -10.0
 max_polyphony = 3
 
 [node name="Pop" type="AudioStreamPlayer2D" parent="."]
@@ -192,5 +192,5 @@ max_polyphony = 3
 
 [node name="OrbImpact" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_cwhmb")
-volume_db = -5.0
+volume_db = -10.0
 max_polyphony = 3

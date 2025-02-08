@@ -189,4 +189,3 @@ pitch_scale = 1.1
 
 [node name="OrbBreak" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_di8jp")
-volume_db = 3.0
