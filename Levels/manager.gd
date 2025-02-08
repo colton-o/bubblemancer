@@ -14,3 +14,5 @@ func _process(delta: float) -> void:
 		var scene = "res://Levels/Stage_%s.tscn" % (level+1)
 		await get_tree().create_timer(2).timeout
 		get_tree().change_scene_to_file(scene)
+		
+		

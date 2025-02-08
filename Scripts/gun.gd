@@ -1,20 +1,23 @@
 extends Node2D
 
 var rot = 1
-var turns = 10
+var turns = 5
 var xAxis = 0
 @export var ORB : PackedScene
 @export var shoot_fx : Array[AudioStream]
+var can_shoot
 
 func _ready() -> void:
 	$"../UI/Turn".text = "Turns: %s" % turns
+	can_shoot = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("shoot"):
-		shoot()
+		if can_shoot == true:
+				shoot()
 	rotate(xAxis * rot * delta)
 	
 	if(transform.get_rotation() > 1):
@@ -41,8 +44,9 @@ func shoot():
 	$"../Inventory".update_stash()
 	turns -= 1
 	$"../UI/Turn".text = "Turns: %s" % turns
-	if(turns < 0):
-		get_tree().reload_current_scene()
+	if(turns == 0):
+		can_shoot = false
+		$"../UI".get_child(1).visible = true
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		xAxis = event.relative.x

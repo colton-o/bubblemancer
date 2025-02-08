@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://douo1tm7qytb1"]
+
+[ext_resource type="FontFile" uid="uid://cvfn2glm3782q" path="res://ArcaneNine-eZP1x.ttf" id="1_tscmm"]
+[ext_resource type="Script" path="res://Objects/reset_button.gd" id="2_q2ygg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_likt5"]
+font = ExtResource("1_tscmm")
+font_size = 121
+font_color = Color(0.747831, 0.0693417, 0.140642, 1)
+outline_color = Color(0.627451, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(1, 1, 1, 0.2)
+shadow_offset = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ih3i1"]
+font = ExtResource("1_tscmm")
+font_size = 91
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1qxn8"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_pjl1p"]
+default_font = ExtResource("1_tscmm")
+default_font_size = 35
+Button/colors/font_color = Color(0.83508, 0, 0.0478162, 1)
+Button/styles/normal = SubResource("StyleBoxFlat_1qxn8")
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Turn" type="Label" parent="."]
+layout_mode = 0
+offset_left = -916.0
+offset_top = -517.0
+offset_right = -499.0
+offset_bottom = -243.0
+text = "Turns"
+label_settings = SubResource("LabelSettings_likt5")
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -267.0
+offset_top = -356.0
+offset_right = 279.0
+offset_bottom = 355.0
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = -6.0
+offset_top = 66.0
+offset_right = 542.0
+offset_bottom = 277.0
+text = "Out of Turns 
+:("
+label_settings = SubResource("LabelSettings_ih3i1")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="Panel"]
+layout_mode = 0
+offset_left = 171.0
+offset_top = 400.0
+offset_right = 361.0
+offset_bottom = 438.0
+theme = SubResource("Theme_pjl1p")
+text = "Try Again"
+script = ExtResource("2_q2ygg")

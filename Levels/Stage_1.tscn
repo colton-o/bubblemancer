@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://gd8n11akhqei"]
+[gd_scene load_steps=43 format=3 uid="uid://gd8n11akhqei"]
 
 [ext_resource type="Script" path="res://Levels/manager.gd" id="1_0igco"]
 [ext_resource type="Script" path="res://Scripts/powers.gd" id="2_sld6f"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://dcadn0auhi4fv" path="res://Sprites/Bubble/bubble_tri_rune.tga" id="14_nymw6"]
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="15_7crpp"]
 [ext_resource type="PackedScene" uid="uid://bai4q0ixrltg4" path="res://Objects/seal.tscn" id="15_iompg"]
-[ext_resource type="FontFile" uid="uid://cvfn2glm3782q" path="res://ArcaneNine-eZP1x.ttf" id="16_hgmf1"]
+[ext_resource type="PackedScene" uid="uid://douo1tm7qytb1" path="res://Objects/ui.tscn" id="17_r8c0a"]
 [ext_resource type="Texture2D" uid="uid://c4724ho8ihao3" path="res://Sprites/formula.png" id="18_d71ce"]
 [ext_resource type="AudioStream" uid="uid://cdkcvgyigqniv" path="res://Audio/Music/bubblemancer-level-music-low.wav" id="18_runn3"]
 [ext_resource type="Texture2D" uid="uid://bmx5e7w51hgno" path="res://Sprites/image.png" id="19_wnkqf"]
@@ -172,15 +172,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="LabelSettings" id="LabelSettings_likt5"]
-font = ExtResource("16_hgmf1")
-font_size = 121
-font_color = Color(0.747831, 0.0693417, 0.140642, 1)
-outline_color = Color(0.627451, 0, 0, 1)
-shadow_size = 0
-shadow_color = Color(1, 1, 1, 0.2)
-shadow_offset = Vector2(0, 0)
-
 [node name="Root" type="Node2D"]
 script = ExtResource("1_0igco")
 target_score = 2
@@ -329,20 +320,7 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-172, -205)
 scale = Vector2(0.5, 0.5)
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Turn" type="Label" parent="UI"]
-layout_mode = 0
-offset_left = -916.0
-offset_top = -517.0
-offset_right = -499.0
-offset_bottom = -243.0
-text = "Turns"
-label_settings = SubResource("LabelSettings_likt5")
+[node name="UI" parent="." instance=ExtResource("17_r8c0a")]
 
 [node name="SFX" type="AudioStreamPlayer" parent="."]
 
