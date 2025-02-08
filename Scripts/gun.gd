@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("shoot"):
 		if can_shoot == true:
-				shoot()
+				shoot(1)
 	rotate(xAxis * rot * delta)
 	
 	if(transform.get_rotation() > 1):
@@ -28,25 +28,30 @@ func _process(delta: float) -> void:
 	
 	xAxis = 0
 	
-	
-func shoot():
-	$"../SFX".set_stream(shoot_fx[randi() %3])
-	$"../SFX".play()
-	$Sprite.play("Shoot")
+		
+func shoot(numBubbles: int):
 	print("shooting")
-	var orb = ORB.instantiate()
-	orb.global_position = get_child(0).global_position
-	orb.global_rotation = global_rotation
-	var bubble_rune = $"../Inventory".bubble_array[0].rune
-	orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
-	orb.runeID = bubble_rune
-	get_node("/root/Root").add_child(orb)
-	$"../Inventory".update_stash()
 	turns -= 1
 	$"../UI/Turn".text = "Turns: %s" % turns
+	
+	for i in numBubbles:
+		$"../SFX".set_stream(shoot_fx[randi() %3])
+		$"../SFX".play()
+		$Sprite.play("Shoot")
+		var orb = ORB.instantiate()
+		orb.global_position = get_child(0).global_position
+		orb.global_rotation = global_rotation
+		var bubble_rune = $"../Inventory".bubble_array[0].rune
+		orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
+		orb.runeID = bubble_rune
+		get_node("/root/Root").add_child(orb)
+		$"../Inventory".update_stash()
+		await get_tree().create_timer(.1).timeout
+	
 	if(turns == 0):
 		can_shoot = false
 		$"../UI".get_child(1).visible = true
+		
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		xAxis = event.relative.x
