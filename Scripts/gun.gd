@@ -43,7 +43,7 @@ func shoot(numBubbles: int):
 		$Sprite.play("Shoot")
 		var orb = ORB.instantiate()
 		orb.global_position = get_child(0).global_position
-		orb.global_rotation = global_rotation
+		orb.global_rotation = global_rotation + randf_range(-0.1,0.1)
 		var bubble_rune = $"../Inventory".bubble_array[0].rune
 		orb.get_child(1).set_texture($"../Inventory".rune_tex[bubble_rune])
 		orb.runeID = bubble_rune
