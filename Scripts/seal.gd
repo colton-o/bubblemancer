@@ -12,7 +12,7 @@ var tex_num : Array[int] = [10,10,10]
 # Old audio implemnentation
 #@export var break_sfx : AudioStream
 
-@onready var rune_sctivated_sfx = $RuneActivated
+@onready var rune_activated_sfx = $RuneActivated
 @onready var orb_break_sfx = $OrbBreak
 
 var alive = true
@@ -62,6 +62,7 @@ func _testSeal() -> void:
 				foundOrb = orb
 				found = true
 				get_child(i).set_texture(rune_tex_array[tex_num[i]+9])
+				rune_activated_sfx.play()
 				break
 		if found:
 			orbsToTest.erase(foundOrb)
