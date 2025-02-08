@@ -7,10 +7,18 @@ var collision
 var connectedSeal
 var runeID
 @export var stuck = false
-@export var bounce_sfx: Array[AudioStream]
-@export var impact_sfx: Array[AudioStream]
-@export var pop_sfx: Array[AudioStream]
-@export var seal_sfx: Array[AudioStream]
+
+#Old Audio Implementation
+#@export var bounce_sfx: Array[AudioStream]
+#@export var impact_sfx: Array[AudioStream]
+#@export var pop_sfx: Array[AudioStream]
+#@export var seal_sfx: Array[AudioStream]
+
+@onready var bounce_sfx = $Bounce
+@onready var bubble_impact_sfx = $BubbleImpact
+@onready var pop_sfx = $Pop
+@onready var orb_impact_sfx = $OrbImpact
+
 var ORB = load("res://Objects/Orb.tscn")
 
 	
@@ -29,22 +37,26 @@ func _physics_process(delta: float) -> void:
 			
 		if colName == "walls":
 			velocity = velocity.bounce(collision.get_normal())
-			play_sfx(bounce_sfx[randi() %3])
+			#play_sfx(bounce_sfx[randi() %3])
+			bounce_sfx.play()
 		elif colName == "Bouncers":
 			velocity = velocity.bounce(collision.get_normal())
-			play_sfx(bounce_sfx[randi() %3])
+			#play_sfx(bounce_sfx[randi() %3])
+			bubble_impact_sfx.play()
 		elif (collision.get_collider() is Orb):
 			if collision.get_collider().stuck:
 				connectedOrbs.append(collision.get_collider())
 				collision.get_collider().connectedOrbs.append(self)
 				velocity = Vector2.ZERO
-				play_sfx(impact_sfx[randi() %3])
+				#play_sfx(impact_sfx[randi() %3])
+				bubble_impact_sfx.play()
 				_testFormulas()
 				active = false
 				stuck = true
 			else:
 				velocity = velocity.bounce(collision.get_normal())
-				play_sfx(bounce_sfx[randi() %3])
+				#play_sfx(bounce_sfx[randi() %3])
+				bounce_sfx.play()
 		elif (collision.get_collider() is Seal):
 			collision.get_collider().connectedOrbs.append(self)
 			collision.get_collider()._testSeal()
@@ -52,7 +64,8 @@ func _physics_process(delta: float) -> void:
 			connectedSeal = collision.get_collider()
 			active = false
 			stuck = true
-			play_sfx(seal_sfx[randi() %3])
+			#play_sfx(seal_sfx[randi() %3])
+			orb_impact_sfx.play()
 		
 		else:
 			velocity = Vector2.ZERO
@@ -122,7 +135,8 @@ func _completeFormula(orbsUsed) -> void:
 		orb._pop()
 	
 func _pop() -> void:
-	play_sfx(pop_sfx[randi()%3])
+	#play_sfx(pop_sfx[randi()%3])
+	pop_sfx.play()
 	if connectedSeal != null:
 		if connectedSeal.connectedOrbs.count(self):
 			connectedSeal.connectedOrbs.erase(self)
@@ -134,7 +148,7 @@ func _pop() -> void:
 	await get_tree().create_timer(.5).timeout
 	queue_free()
 	
-func play_sfx(sound):
-	$"../SFX".set_stream(sound)
-	$"../SFX".play()
+#func play_sfx(sound):
+	#$"../SFX".set_stream(sound)
+	#$"../SFX".play()
 	

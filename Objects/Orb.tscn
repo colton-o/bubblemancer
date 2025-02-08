@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://c4feeix6dhioc"]
+[gd_scene load_steps=35 format=3 uid="uid://c4feeix6dhioc"]
 
 [ext_resource type="Texture2D" uid="uid://c3dliyoqmdrui" path="res://Sprites/Bubble/bubble_idle.tga" id="2_fcsqy"]
 [ext_resource type="Script" path="res://Scripts/orb.gd" id="2_ibo17"]
@@ -123,6 +123,34 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_oo1sj"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("3_bmxd3")
+stream_1/stream = ExtResource("3_e2r3u")
+stream_2/stream = ExtResource("4_nay6l")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_sma2t"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("5_3tr4x")
+stream_1/stream = ExtResource("6_u2it6")
+stream_2/stream = ExtResource("7_1gpv0")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y84fe"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("8_d1f2g")
+stream_1/stream = ExtResource("9_p2hkg")
+stream_2/stream = ExtResource("10_hclu6")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_cwhmb"]
+random_pitch = 1.1
+streams_count = 3
+stream_0/stream = ExtResource("11_1p4qb")
+stream_1/stream = ExtResource("12_hyp74")
+stream_2/stream = ExtResource("13_wlx3g")
+
 [node name="Orb" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 disable_mode = 1
@@ -130,10 +158,6 @@ collision_layer = 3
 slide_on_ceiling = false
 script = ExtResource("2_ibo17")
 speed = 750
-bounce_sfx = Array[AudioStream]([ExtResource("3_bmxd3"), ExtResource("3_e2r3u"), ExtResource("4_nay6l")])
-impact_sfx = Array[AudioStream]([ExtResource("5_3tr4x"), ExtResource("6_u2it6"), ExtResource("7_1gpv0")])
-pop_sfx = Array[AudioStream]([ExtResource("8_d1f2g"), ExtResource("9_p2hkg"), ExtResource("10_hclu6")])
-seal_sfx = Array[AudioStream]([ExtResource("11_1p4qb"), ExtResource("12_hyp74"), ExtResource("13_wlx3g")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.4, 1.4)
@@ -150,3 +174,19 @@ animation = &"pop"
 autoplay = "default"
 frame = 7
 frame_progress = 1.0
+
+[node name="Bounce" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_oo1sj")
+max_polyphony = 3
+
+[node name="BubbleImpact" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_sma2t")
+max_polyphony = 3
+
+[node name="Pop" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_y84fe")
+max_polyphony = 3
+
+[node name="OrbImpact" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_cwhmb")
+max_polyphony = 3

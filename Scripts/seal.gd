@@ -8,7 +8,13 @@ var requiredRunes: Array[int] = [0,0,0]
 var tex_num : Array[int] = [10,10,10]
 
 @export var connectedOrbs = Array([], TYPE_OBJECT, "Node", Orb)
-@export var break_sfx : AudioStream
+
+# Old audio implemnentation
+#@export var break_sfx : AudioStream
+
+@onready var rune_sctivated_sfx = $RuneActivated
+@onready var orb_break_sfx = $OrbBreak
+
 var alive = true
 
 # Called when the node enters the scene tree for the first time.
@@ -27,8 +33,9 @@ func _process(delta: float) -> void:
 
 	if $AnimatedSprite2D.animation == "death":
 		if alive:
-			$"../SFX".set_stream(break_sfx)
-			$"../SFX".play()
+			#$"../SFX".set_stream(break_sfx)
+			#$"../SFX".play()
+			orb_break_sfx.play()
 			alive = false
 		if$AnimatedSprite2D.frame == 6:
 			$Rune_01.hide()

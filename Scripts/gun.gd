@@ -4,8 +4,9 @@ var rot = 1
 var turns = 5
 var xAxis = 0
 @export var ORB : PackedScene
-@export var shoot_fx : Array[AudioStream]
+#@export var shoot_fx : Array[AudioStream]
 var can_shoot
+@onready var bubbleshot = $bubbleshot
 
 func _ready() -> void:
 	$"../UI/Turn".text = "Turns: %s" % turns
@@ -36,8 +37,9 @@ func shoot(numBubbles: int):
 	
 	for i in numBubbles:
 		$"../Inventory/AnimationPlayer".play("RESET")
-		$"../SFX".set_stream(shoot_fx[randi() %3])
-		$"../SFX".play()
+		bubbleshot.play()
+		#$"../SFX".set_stream(shoot_fx[randi() %3])
+		#$"../SFX".play()
 		$Sprite.play("Shoot")
 		var orb = ORB.instantiate()
 		orb.global_position = get_child(0).global_position

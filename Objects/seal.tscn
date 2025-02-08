@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bai4q0ixrltg4"]
+[gd_scene load_steps=43 format=3 uid="uid://bai4q0ixrltg4"]
 
 [ext_resource type="Script" path="res://Scripts/seal.gd" id="1_lwe4x"]
 [ext_resource type="Texture2D" uid="uid://b87pobwc2y6f6" path="res://Sprites/Seal/seal_base.tga" id="2_0ux6b"]
@@ -23,6 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://oopvpmpr4n3i" path="res://Sprites/Seal/seal_rune_tri03_ACTIVE.tga" id="19_kpwvk"]
 [ext_resource type="AudioStream" uid="uid://cwnyf2mt8oyox" path="res://Audio/SFX/Orb/orb-break.wav" id="20_opjmo"]
 [ext_resource type="Texture2D" uid="uid://2gnly6jn62m7" path="res://Sprites/Seal/seal_explosioneffect.tga" id="22_n5rgv"]
+[ext_resource type="AudioStream" uid="uid://bnc3b6nxvpksu" path="res://Audio/SFX/Orb/rune-activated-1.wav" id="24_27wml"]
+[ext_resource type="AudioStream" uid="uid://dkhfes4468qqg" path="res://Audio/SFX/Orb/rune-activated-2.wav" id="25_jqj0h"]
+[ext_resource type="AudioStream" uid="uid://cbawhbhf4e78m" path="res://Audio/SFX/Orb/rune-activated-3.wav" id="26_epd5n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_183uq"]
 radius = 128.867
@@ -124,12 +127,22 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_wao44"]
+streams_count = 3
+stream_0/stream = ExtResource("24_27wml")
+stream_1/stream = ExtResource("25_jqj0h")
+stream_2/stream = ExtResource("26_epd5n")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_di8jp"]
+random_pitch = 1.1
+streams_count = 1
+stream_0/stream = ExtResource("20_opjmo")
+
 [node name="Seal" type="StaticBody2D"]
 position = Vector2(0, -65.335)
 collision_layer = 3
 script = ExtResource("1_lwe4x")
 rune_tex_array = [ExtResource("3_fu75b"), ExtResource("3_iapg5"), ExtResource("4_y03q4"), ExtResource("4_hounj"), ExtResource("6_2ei7g"), ExtResource("7_bvvu8"), ExtResource("5_iiwh0"), ExtResource("9_01net"), ExtResource("10_oyyik"), ExtResource("5_klks8"), ExtResource("12_gjqps"), ExtResource("13_utedr"), ExtResource("7_nv6xj"), ExtResource("15_tr2uy"), ExtResource("16_0d686"), ExtResource("9_127hv"), ExtResource("18_vmo7y"), ExtResource("19_kpwvk")]
-break_sfx = ExtResource("20_opjmo")
 
 [node name="Rune_01" type="Sprite2D" parent="."]
 z_index = 1
@@ -168,3 +181,10 @@ z_as_relative = false
 scale = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_dhvo3")
 autoplay = "default"
+
+[node name="RuneActivated" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_wao44")
+pitch_scale = 1.1
+
+[node name="OrbBreak" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_di8jp")
