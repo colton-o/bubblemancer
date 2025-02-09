@@ -16,6 +16,7 @@ var tex_num : Array[int] = [10,10,10]
 @onready var orb_break_sfx = $OrbBreak
 
 var alive = true
+var broken = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -78,6 +79,8 @@ func _testSeal() -> void:
 
 
 func _breakSeal() -> void:
+	if broken: return
+	broken = true
 	print("Seal Broken")
 	$"../PowerUps".extra_turn(5)
 	$"..".current_score += 1
