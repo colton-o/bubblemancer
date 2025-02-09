@@ -106,6 +106,13 @@ func _testFormulas() -> void:
 		$"../bubbles_for_Miles".position = self.position
 		$"../bubbles_for_Miles".bubbleshit(ORB)
 		return
+		
+	print("TESTMEGACHAIN")
+	orbs = _testFormula(self, Array([], TYPE_OBJECT,"Node",Orb),[0,0,2,2])
+	if orbs.size()>0 :
+		_completeFormula(orbs)
+		print("MORE SHOOTING")
+		$"../PowerUps".extra_shot(1)
 	
 	
 func _testFormula(currentOrb, collectedOrbs, formula : Array) -> Array:
