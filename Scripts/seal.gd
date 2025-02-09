@@ -83,5 +83,5 @@ func _breakSeal() -> void:
 	$"..".current_score += 1
 	$AnimatedSprite2D.play("death")
 	for orb in connectedOrbs:
-		if orb == null: pass		
+		if orb == null: continue		
 		orb._pop()
