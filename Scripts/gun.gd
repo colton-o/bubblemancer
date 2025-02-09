@@ -7,6 +7,7 @@ var xAxis = 0
 #@export var shoot_fx : Array[AudioStream]
 var can_shoot
 @onready var bubbleshot = $bubbleshot
+var shoot_amount = 1
 
 func _ready() -> void:
 	$"../UI/Turn".text = "Turns: %s" % turns
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 
 	if Input.is_action_just_pressed("shoot"):
 		if can_shoot == true:
-				shoot(3)
+				shoot(shoot_amount)
 	rotate(xAxis * rot * delta)
 	
 	if(transform.get_rotation() > 1):
