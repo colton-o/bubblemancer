@@ -53,7 +53,7 @@ func shoot(numBubbles: int):
 		$"../Inventory/AnimationPlayer".play("Move_runes")
 		await get_tree().create_timer(.1).timeout
 	
-	if(turns == 0):
+	if(turns < 0):
 		can_shoot = false
 		$"../UI".get_child(1).visible = true
 		

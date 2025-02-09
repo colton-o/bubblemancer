@@ -1,13 +1,10 @@
-[gd_scene load_steps=42 format=3 uid="uid://vrjb2vsqy18t"]
+[gd_scene load_steps=39 format=3 uid="uid://vrjb2vsqy18t"]
 
 [ext_resource type="Script" path="res://Levels/manager.gd" id="1_1l132"]
 [ext_resource type="Script" path="res://Scripts/powers.gd" id="2_jxcbm"]
 [ext_resource type="Texture2D" uid="uid://581d1araycw6" path="res://Sprites/Tabletop/playspace_rough.tga" id="3_wd4ed"]
 [ext_resource type="Script" path="res://Scripts/gun.gd" id="4_4nmt6"]
 [ext_resource type="PackedScene" uid="uid://c4feeix6dhioc" path="res://Objects/Orb.tscn" id="5_5673n"]
-[ext_resource type="AudioStream" uid="uid://yehyebxgjd6k" path="res://Audio/SFX/Bubble/bubble-shot-1.wav" id="6_nrpj6"]
-[ext_resource type="AudioStream" uid="uid://d1b7tovm4m5hx" path="res://Audio/SFX/Bubble/bubble-shot-2.wav" id="7_m6fhv"]
-[ext_resource type="AudioStream" uid="uid://bj3h442xv5fwl" path="res://Audio/SFX/Bubble/bubble-shot-3.wav" id="8_8u6dd"]
 [ext_resource type="Texture2D" uid="uid://bn1gp2pehi0me" path="res://Sprites/Pipe/bubble_pipe_shoot.tga" id="9_73bix"]
 [ext_resource type="Texture2D" uid="uid://dbadu0ki6ebp8" path="res://Sprites/Pipe/bubble_pipe_idle.tga" id="10_jiqhv"]
 [ext_resource type="Script" path="res://Scripts/inventory.gd" id="11_jqdul"]
@@ -266,7 +263,6 @@ position = Vector2(0, 489.805)
 scale = Vector2(1, 0.571)
 script = ExtResource("4_4nmt6")
 ORB = ExtResource("5_5673n")
-shoot_fx = Array[AudioStream]([ExtResource("6_nrpj6"), ExtResource("7_m6fhv"), ExtResource("8_8u6dd")])
 
 [node name="Muzzle" type="Node2D" parent="Gun"]
 position = Vector2(0, -250.13)

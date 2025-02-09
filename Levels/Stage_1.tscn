@@ -376,7 +376,6 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("18_pkjvg")
 volume_db = -15.0
 autoplay = true
-stream_paused = true
 
 [node name="Formula" type="Sprite2D" parent="."]
 position = Vector2(672.063, 92.6866)

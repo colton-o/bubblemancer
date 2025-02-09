@@ -11,4 +11,4 @@ func _process(delta: float) -> void:
 	pass
 	
 func _pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://Levels/Level_1.tscn")

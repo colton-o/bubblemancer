@@ -11,8 +11,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(current_score == target_score):
-		var scene = "res://Levels/Level_%s.tscn" % (level+1)
-		await get_tree().create_timer(2).timeout
-		get_tree().change_scene_to_file(scene)
+		if level == 5:
+			$"../UI".get_child(2).visible = true
+		else:
+			var scene = "res://Levels/Level_%s.tscn" % (level+1)
+			await get_tree().create_timer(2).timeout
+			get_tree().change_scene_to_file(scene)
 		
 		
