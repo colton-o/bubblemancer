@@ -147,6 +147,7 @@ func _connectedToSeal(testedOrbs : Array) -> bool:
 		return false
 				
 func _pop() -> void:
+	get_node("CollisionShape2D").disabled = true 
 	#play_sfx(pop_sfx[randi()%3])
 	pop_sfx.play()
 	if connectedSeal != null:
